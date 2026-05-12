@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byron Ong - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" style="background-color: #0f172a !important; position: fixed; top: 0; left: 0; right: 0; z-index: 99999;">
+        <div class="nav-container">
+            <a href="#home" class="logo">Portfolio</a>
+            <ul class="nav-links" style="display: flex; gap: 30px; list-style: none; margin: 0; padding: 0;">
+                <li><a href="#about" style="color: #ffffff; font-weight: 700; text-decoration: none;">About</a></li>
+                <li><a href="#video-resume" style="color: #ffffff; font-weight: 700; text-decoration: none;">Video Resume</a></li>
+                <li><a href="#experience" style="color: #ffffff; font-weight: 700; text-decoration: none;">Experience</a></li>
+                <li><a href="#skills" style="color: #ffffff; font-weight: 700; text-decoration: none;">Skills</a></li>
+                <li><a href="#projects" style="color: #ffffff; font-weight: 700; text-decoration: none;">Projects</a></li>
+                <li><a href="#references" style="color: #ffffff; font-weight: 700; text-decoration: none;">References</a></li>
+                <li><a href="#contact" style="color: #ffffff; font-weight: 700; text-decoration: none;">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-shapes">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+            <div class="hero-shape hero-shape-4"></div>
+            <div class="hero-shape hero-shape-5"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Byron Ong</span></h1>
+            <p class="tagline">Virtual Assistant, Video Editor & AI Content Specialist</p>
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="Untitled design.png" alt="Byron Ong" class="profile-photo">
+                </div>
+                <div class="about-text">
+                    <h3>AI Specialist, Video Editor, and Digital Solutions Professional</h3>
+                    <p>AI Specialist, Video Editor, and Digital Solutions Professional with a proven track record of supporting entrepreneurs, coaches, and businesses in both technical and creative functions.</p>
+                    <p>Skilled in blending AI-powered development with digital marketing strategies to streamline operations, boost brand visibility, and drive engagement. Adept at leveraging platforms such as Claude Code, ChatGPT, ElevenLabs, InVideo, VEO Flow, and Playwright MCP to build innovative workflows, automate processes, and deliver high-impact content.</p>
+                    <p>With experience in video editing, web design, SEO, and full-stack development, I thrive at the intersection of technology and creativity—helping clients transform ideas into functional applications and compelling digital experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Skills</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video-resume" class="section">
+        <div class="container">
+            <h2 class="section-title">Video Resume</h2>
+            <div class="video-resume-container">
+                <div class="video-wrapper">
+                    <iframe src="https://drive.google.com/file/d/1uIcIGE_EIX6CO_R-iTFi05FdCw1zX0kL/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <p class="video-desc">Watch my introduction and learn more about my background</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-category">
+                <h3 class="category-title"><span class="category-icon">🚀</span> AI & Tech Development</h3>
+                <div class="experience-grid">
+                    <div class="experience-card featured" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-ai">🤖</div>
+                            <div class="experience-title">
+                                <h3>Artificial Intelligence Engineer</h3>
+                                <p class="company">Pinnacle Minds · Full-time</p>
+                            </div>
+                            <span class="experience-date">Oct 2025 - Mar 2026</span>
+                        </div>
+                        <p class="experience-desc">Actively involved in Vibe Coding, leveraging AI tools to rapidly prototype, build, and refine software features based on real-time requirements and creative flow. Utilized ChatGPT and AI-assisted coding tools to generate, debug, and optimize frontend and backend code.</p>
+                        <div class="experience-tags">
+                            <span>Vibe Coding</span>
+                            <span>AI Development</span>
+                            <span>ChatGPT</span>
+                            <span>Claude Code</span>
+                            <span>Frontend</span>
+                            <span>Backend</span>
+                            <span>Remote</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Utilized AI tools to rapidly prototype, build, and refine software features</li>
+                                <li>Collaborated with Elden Dev team to translate ideas, prompts, and functional requirements into working applications</li>
+                                <li>Built and improved internal tools, dashboards, and automation workflows</li>
+                                <li>Reviewed AI-generated code to ensure functionality and clean implementations</li>
+                                <li>Adapted quickly to changing project needs in a remote, AI-driven environment</li>
+                            </ul>
+                            <h4>Projects:</h4>
+                            <ul>
+                                <li><strong>Stock Bot App</strong> - AI-powered application designed to monitor and analyze stock market trends. Automates data collection, provides real-time insights, and supports smarter decision-making for traders and investors.</li>
+                                <li><strong>BlueCheck Chrome Extension</strong> - Browser extension built to streamline online verification workflows. Enhances security by validating identities and content, helping users establish trust and efficiency in digital interactions.</li>
+                                <li><strong>Data Scraping and Categorization</strong> - Automated system for extracting, cleaning, and organizing large datasets. Improves information processing and content management by turning raw data into structured, actionable insights.</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                    <div class="experience-card featured" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-ai">🤖</div>
+                            <div class="experience-title">
+                                <h3>Vibe Coder | AI-Assisted Developer</h3>
+                                <p class="company">Elden Dev</p>
+                            </div>
+                            <span class="experience-date">Oct 2025 - Present</span>
+                        </div>
+                        <p class="experience-desc">Leveraging AI tools to rapidly prototype, build, and refine software features. Utilizing ChatGPT and AI-assisted coding tools to generate, debug, and optimize frontend and backend code.</p>
+                        <div class="experience-tags">
+                            <span>AI Development</span>
+                            <span>ChatGPT</span>
+                            <span>Claude Code</span>
+                            <span>Frontend</span>
+                            <span>Backend</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Built and deployed web applications using AI-assisted development workflows</li>
+                                <li>Integrated ChatGPT API for intelligent features and automation</li>
+                                <li>Reduced development time by 40% using vibe coding methodologies</li>
+                                <li>Collaborated with cross-functional teams to deliver scalable solutions</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-category">
+                <h3 class="category-title"><span class="category-icon">🎬</span> Content Creation & Video</h3>
+                <div class="experience-grid">
+                    <div class="experience-card" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-content">🎬</div>
+                            <div class="experience-title">
+                                <h3>Virtual Assistant | Content Creator</h3>
+                                <p class="company">Kiwi Medical Surplus / Timmy / Zenworx Ai</p>
+                            </div>
+                            <span class="experience-date">Jul - Sep 2025</span>
+                        </div>
+                        <p class="experience-desc">Produced engaging content and graphics using AI platforms. Generated AI-powered voiceovers and edited videos for YouTube and Instagram.</p>
+                        <div class="experience-tags">
+                            <span>Content Creation</span>
+                            <span>Video Editing</span>
+                            <span>InVideo</span>
+                            <span>ElevenLabs</span>
+                            <span>VEO Flow</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Created 50+ videos with AI-generated voiceovers using ElevenLabs</li>
+                                <li>Increased YouTube engagement by 60% through optimized content</li>
+                                <li>Streamlined video production workflow using AI tools</li>
+                                <li>Managed content calendar across multiple platforms</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                    <div class="experience-card" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-marketing">📈</div>
+                            <div class="experience-title">
+                                <h3>Virtual Assistant | Video Editor | Digital Marketer</h3>
+                                <p class="company">Doctor Maureen Gibbons</p>
+                            </div>
+                            <span class="experience-date">Jun - Nov 2024</span>
+                        </div>
+                        <p class="experience-desc">Developed lead-generation funnels and optimized conversion rates. Edited promotional content for social media and managed multi-platform digital marketing strategies.</p>
+                        <div class="experience-tags">
+                            <span>Lead Generation</span>
+                            <span>Video Editing</span>
+                            <span>Digital Marketing</span>
+                            <span>Social Media</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Built high-converting lead magnet funnels that generated 200+ leads monthly</li>
+                                <li>Improved conversion rates by 35% through A/B testing and optimization</li>
+                                <li>Created 100+ promotional videos for social media campaigns</li>
+                                <li>Managed email marketing campaigns with 25% open rates</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                    <div class="experience-card" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-social">✂️</div>
+                            <div class="experience-title">
+                                <h3>Virtual Assistant | Video Editor</h3>
+                                <p class="company">Doctor Linah Joudeh</p>
+                            </div>
+                            <span class="experience-date">Apr 2023 - Jan 2024</span>
+                        </div>
+                        <p class="experience-desc">Designed and edited graphic content for brand promotions. Created short-form videos for Instagram marketing campaigns, increasing social media engagement.</p>
+                        <div class="experience-tags">
+                            <span>Graphic Design</span>
+                            <span>Video Editing</span>
+                            <span>Instagram</span>
+                            <span>Content Strategy</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Increased Instagram follower engagement by 150%</li>
+                                <li>Created 200+ custom graphics for brand promotions</li>
+                                <li>Produced 50+ short-form videos for Reels and Stories</li>
+                                <li>Developed cohesive brand visual identity</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-category">
+                <h3 class="category-title"><span class="category-icon">💼</span> Business & Operations</h3>
+                <div class="experience-grid">
+                    <div class="experience-card" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-business">💼</div>
+                            <div class="experience-title">
+                                <h3>Virtual Assistant | Video Editor | Executive Assistant</h3>
+                                <p class="company">Wasambe</p>
+                            </div>
+                            <span class="experience-date">Aug - Nov 2023</span>
+                        </div>
+                        <p class="experience-desc">Designed PowerPoint presentations for corporate clients. Edited event videos and enhanced video production efficiency, reducing turnaround time by 30%.</p>
+                        <div class="experience-tags">
+                            <span>Presentations</span>
+                            <span>Video Editing</span>
+                            <span>Executive Support</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Reduced video production turnaround time by 30%</li>
+                                <li>Created 50+ professional PowerPoint presentations for corporate clients</li>
+                                <li>Edited 20+ event videos for corporate functions</li>
+                                <li>Supported C-level executives with scheduling and communications</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                    <div class="experience-card" onclick="toggleExperience(this)">
+                        <div class="experience-header">
+                            <div class="experience-icon gradient-ops">🍽️</div>
+                            <div class="experience-title">
+                                <h3>Owner / Manager</h3>
+                                <p class="company">Bianca's Grill and Restaurant</p>
+                            </div>
+                            <span class="experience-date">2022 - 2023</span>
+                        </div>
+                        <p class="experience-desc">Managed day-to-day restaurant operations. Handled customer service and built customer loyalty. Oversaw financial management, budgeting, and expense tracking.</p>
+                        <div class="experience-tags">
+                            <span>Operations</span>
+                            <span>Customer Service</span>
+                            <span>Financial Management</span>
+                        </div>
+                        <div class="experience-details">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Managed full P&L responsibilities and annual budget of $500K+</li>
+                                <li>Built a loyal customer base with 40% repeat business</li>
+                                <li>Hired and trained 15+ staff members</li>
+                                <li>Implemented cost-saving measures that reduced expenses by 15%</li>
+                            </ul>
+                        </div>
+                        <span class="expand-hint">Click to expand</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><span class="skill-icon">💼</span> Executive Assistance</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Calendar & Email Management</span>
+                        <span class="skill-tag">Scheduling Meetings</span>
+                        <span class="skill-tag">Reports & Presentations</span>
+                        <span class="skill-tag">Data Entry</span>
+                        <span class="skill-tag">Customer Service</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span class="skill-icon">📊</span> Digital Marketing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Content Creation</span>
+                        <span class="skill-tag">Social Media Management</span>
+                        <span class="skill-tag">SEO Optimization</span>
+                        <span class="skill-tag">Lead Generation</span>
+                        <span class="skill-tag">CRM Management</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span class="skill-icon">🎬</span> Video & Graphics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Adobe Premiere Pro</span>
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">CapCut</span>
+                        <span class="skill-tag">Filmora</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span class="skill-icon">🤖</span> AI Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">ElevenLabs</span>
+                        <span class="skill-tag">Gemini</span>
+                        <span class="skill-tag">InVideo</span>
+                        <span class="skill-tag">VEO Flow</span>
+                        <span class="skill-tag">Claude Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-category">
+                <h3 class="category-title"><span class="category-icon">🤖</span> AI Engineering Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop" alt="Stock Bot App">
+                        </div>
+                        <div class="project-info">
+                            <h3>Stock Bot App</h3>
+                            <p>AI-powered application designed to monitor and analyze stock market trends. It automates data collection, provides real-time insights, and supports smarter decision-making for traders and investors.</p>
+                            <div class="project-tags">
+                                <span>AI</span>
+                                <span>Finance</span>
+                                <span>Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&h=400&fit=crop" alt="BlueCheck Chrome Extension">
+                        </div>
+                        <div class="project-info">
+                            <h3>BlueCheck Chrome Extension</h3>
+                            <p>Browser extension built to streamline online verification workflows. It enhances security by validating identities and content, helping users establish trust and efficiency in digital interactions.</p>
+                            <div class="project-tags">
+                                <span>Chrome Extension</span>
+                                <span>Verification</span>
+                                <span>Workflow Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Data Scraping and Categorization">
+                        </div>
+                        <div class="project-info">
+                            <h3>Data Scraping and Categorization</h3>
+                            <p>Automated system for extracting, cleaning, and organizing large datasets. It improves information processing and content management by turning raw data into structured, actionable insights.</p>
+                            <div class="project-tags">
+                                <span>Web Scraping</span>
+                                <span>Automation</span>
+                                <span>Data Processing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title"><span class="category-icon">🎬</span> Thumbnail Design</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop" alt="Beat Graphics">
+                        </div>
+                        <div class="project-info">
+                            <h3>Beat Graphics</h3>
+                            <p>Custom video thumbnails for Beat Stars, Pillar Content, and YouTube. Designed to increase click-through rates.</p>
+                            <div class="project-tags">
+                                <span>Beat Stars</span>
+                                <span>Pillar Content</span>
+                                <span>YouTube</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/11C47McVQAEuUkMi5OfCjXjkbtcr7ZgGo" target="_blank" class="project-link">View Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title"><span class="category-icon">🤖</span> AI Content Creation</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=600&h=400&fit=crop" alt="Elevate with AI">
+                        </div>
+                        <div class="project-info">
+                            <h3>Elevate with AI</h3>
+                            <p>AI-powered video edits using advanced AI video tools for enhanced visual storytelling.</p>
+                            <div class="project-tags">
+                                <span>AI Video</span>
+                                <span>Video Editing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/1airKRv-W3b5vf3dz3A9WQCNz2C8B67cR" target="_blank" class="project-link">View Videos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Kiwi Medical Surplus">
+                        </div>
+                        <div class="project-info">
+                            <h3>Kiwi Medical Surplus</h3>
+                            <p>AI-powered graphic designs and video edits for a medical supplies company.</p>
+                            <div class="project-tags">
+                                <span>AI Graphics</span>
+                                <span>AI Video</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/1P43NOiqwPz1CM2vILSBStid6Vp96YXi4" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600&h=400&fit=crop" alt="Zenworx AI Videos">
+                        </div>
+                        <div class="project-info">
+                            <h3>Zenworx AI Videos</h3>
+                            <p>AI-generated video content for Zenworx using advanced AI video production tools.</p>
+                            <div class="project-tags">
+                                <span>AI Video</span>
+                                <span>Video Editing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/1Y_6om1yF4-OCV2Exv43O7snlTY_LXy7q" target="_blank" class="project-link">View Videos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title"><span class="category-icon">🎨</span> Vector & Graphic Design</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=400&fit=crop" alt="Zapheads Vector Illustrations">
+                        </div>
+                        <div class="project-info">
+                            <h3>Zapheads Vector Illustrations</h3>
+                            <p>Character vector illustrations created in Adobe Illustrator for branding and marketing.</p>
+                            <div class="project-tags">
+                                <span>Illustrator</span>
+                                <span>Vector Art</span>
+                                <span>Character Design</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/14G8T3qEc4B-FGxYbUnGB5u8BgiGm4P-H" target="_blank" class="project-link">View Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title"><span class="category-icon">📱</span> Social Media & Branding</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=400&fit=crop" alt="Social Media">
+                        </div>
+                        <div class="project-info">
+                            <h3>Kiwi, Timmy & Zenworx - AI Social Media</h3>
+                            <p>AI-generated social media images and graphics for multiple brands.</p>
+                            <div class="project-tags">
+                                <span>AI Graphics</span>
+                                <span>Social Media</span>
+                                <span>Branding</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/1HslQq6mKCsh3fSsCJDlu6p2RwGeUF408" target="_blank" class="project-link">View Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1557683316-973673baf926?w=600&h=400&fit=crop" alt="Timmy AI Images">
+                        </div>
+                        <div class="project-info">
+                            <h3>Timmy AI Images</h3>
+                            <p>AI-generated images and graphics for Timmy brand marketing.</p>
+                            <div class="project-tags">
+                                <span>AI Images</span>
+                                <span>Branding</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/1b_zKYKYuMY6-wdo4a4H4m4JqYGslkSNS" target="_blank" class="project-link">View Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Zenworx">
+                        </div>
+                        <div class="project-info">
+                            <h3>Zenworx</h3>
+                            <p>Comprehensive visual content including images, graphics, and videos.</p>
+                            <div class="project-tags">
+                                <span>AI Images</span>
+                                <span>Graphics</span>
+                                <span>Videos</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/drive/folders/10p4Plm5QJUJJL8y8nOxihQ5VlUkmpqof" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title"><span class="category-icon">📧</span> Marketing & Funnels</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Home Life Academy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Home Life Academy</h3>
+                            <p>Marketing funnels, email campaigns, and digital assets for an education platform.</p>
+                            <div class="project-tags">
+                                <span>Email Marketing</span>
+                                <span>Funnel Building</span>
+                                <span>Canva</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="references" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional References</h2>
+            <p class="section-subtitle">References available upon request</p>
+            <div class="references-grid">
+                <div class="reference-card">
+                    <img src="1759136512250.png" alt="Kathreen Hervera" class="reference-img">
+                    <div class="reference-info">
+                        <h3>Kathreen Hervera</h3>
+                        <p class="reference-title">Professional Reference</p>
+                        <a href="https://www.linkedin.com/in/kathervera/" target="_blank" class="reference-linkedin">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.137.92-2.063 2.063-2.063 1.14 0 2.064.926 2.064 2.063 0 1.137-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="reference-card">
+                    <img src="1670143939184.jpeg" alt="Diego, Jr. Arbiz" class="reference-img">
+                    <div class="reference-info">
+                        <h3>Diego, Jr. Arbiz</h3>
+                        <p class="reference-title">Professional Reference</p>
+                        <a href="https://www.linkedin.com/in/diegoarbizjr/" target="_blank" class="reference-linkedin">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.137.92-2.063 2.063-2.063 1.14 0 2.064.926 2.064 2.063 0 1.137-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="reference-card">
+                    <img src="1755609244845.jpeg" alt="Joseph Kerolos" class="reference-img">
+                    <div class="reference-info">
+                        <h3>Joseph Kerolos</h3>
+                        <p class="reference-title">Professional Reference</p>
+                        <a href="https://www.linkedin.com/in/joseph-kerolos/" target="_blank" class="reference-linkedin">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.137.92-2.063 2.063-2.063 1.14 0 2.064.926 2.064 2.063 0 1.137-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <div class="contact-content">
+                <p class="contact-tagline">Have a project in mind? I'd love to hear about it.</p>
+                <div class="contact-grid">
+                    <a href="mailto:byronjohn.ong@gmail.com" class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Email</h3>
+                            <p>byronjohn.ong@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/639510369103" class="contact-card" target="_blank">
+                        <div class="contact-icon whatsapp">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>WhatsApp</h3>
+                            <p>09510369103</p>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/byron-ong-bron08/" class="contact-card" target="_blank">
+                        <div class="contact-icon linkedin">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.137.92-2.063 2.063-2.063 1.14 0 2.064.926 2.064 2.063 0 1.137-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <h3>LinkedIn</h3>
+                            <p>Connect with me</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="cta-banner">
+                <div class="cta-content">
+                    <h3>Ready to bring your ideas to life?</h3>
+                    <p>Let's collaborate and create something amazing together.</p>
+                    <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Byron Ong</h3>
+                    <p>Virtual Assistant, Video Editor & AI Content Specialist</p>
+                    <div class="footer-social">
+                        <a href="mailto:byronjohn.ong@gmail.com" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="https://wa.me/639510369103" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/byron-ong-bron08/" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.063 0-1.137.92-2.063 2.063-2.063 1.14 0 2.064.926 2.064 2.063 0 1.137-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#video-resume">Video Resume</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#references">References</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:byronjohn.ong@gmail.com">byronjohn.ong@gmail.com</a></p>
+                    <p><a href="https://wa.me/639510369103">09510369103</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Byron Ong. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
