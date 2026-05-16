@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Bike Transportschutz-Set — Schütze die teuersten Teile deines E-Bikes</title>
+<meta name="description" content="Akku, Motor, Display: Beim Transport auf dem Heckträger sind die empfindlichsten Bauteile deines E-Bikes Regen, Steinschlag und Straßendreck ausgesetzt. Das Transportschutz-Set schützt alle drei in einem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0058A0;
+    --blue-dark: #003E73;
+    --blue-soft: #E6EFF7;
+    --green: #3CAF00;
+    --green-dark: #2E8800;
+    --ink: #1A1F2A;
+    --ink-soft: #4A5568;
+    --line: #E5E7EB;
+    --paper: #FFFFFF;
+    --paper-warm: #F8F9FB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo Narrow', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .wrap-narrow { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== ANNOUNCEMENT BAR ===== */
+  .announce {
+    background: var(--blue);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  .announce strong { color: var(--green); font-weight: 700; }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+  .logo-fallback {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.02em;
+  }
+  .logo-fallback span { color: var(--green); }
+  .header-offer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-offer-text {
+    text-align: right;
+    line-height: 1.2;
+  }
+  .header-offer-text .top {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .header-offer-text .top em {
+    font-style: normal;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .header-offer-text .bot {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .header-offer-text .bot s {
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin-left: 6px;
+    font-size: 12px;
+  }
+  .header-cta {
+    background: var(--green);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-cta:hover {
+    background: var(--green-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  @media (max-width: 720px) {
+    .header-offer-text { display: none; }
+    .header-cta { font-size: 13px; padding: 9px 14px; }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 56px 0 48px;
+    background: linear-gradient(180deg, #F0F6FB 0%, #fff 100%);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    background: var(--blue-soft);
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: 44px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--blue);
+  }
+  .hero p.lede {
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+  .hero p.lede strong { color: var(--ink); font-weight: 600; }
+  .hero-trust-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px 0;
+    margin-bottom: 24px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-trust-icons-inner {
+    padding-top: 22px;
+  }
+  .hero-trust-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .hero-trust-row .ic {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-trust-row .ic svg {
+    width: 19px;
+    height: 19px;
+    display: block;
+  }
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--green);
+    color: #fff;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.1s;
+    text-transform: uppercase;
+    box-shadow: 0 8px 24px rgba(60, 175, 0, 0.32);
+  }
+  .hero-cta-btn:hover {
+    background: var(--green-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  .hero-cta-sub {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+  }
+  .hero-cta-sub strong { color: var(--green); font-weight: 700; }
+  /* legacy styles kept for non-removed instances if any */
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-stat .num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat .lbl {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.3;
+  }
+  .hero-img {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 88, 160, 0.15);
+    line-height: 0;
+  }
+  .hero-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero h1 { font-size: 32px; }
+    .hero p.lede { font-size: 17px; }
+    .hero-stats { gap: 20px; }
+    .hero-stat .num { font-size: 22px; }
+  }
+
+  /* ===== POST-HERO CTA STRIP ===== */
+  .post-hero-cta {
+    background: linear-gradient(90deg, #003E73 0%, #0058A0 100%);
+    color: #fff;
+    padding: 18px 0;
+  }
+  .post-hero-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .post-hero-cta-text {
+    font-size: 16px;
+    color: #fff;
+  }
+  .post-hero-cta-text strong {
+    font-weight: 700;
+    color: var(--green);
+  }
+  .post-hero-cta-btn {
+    background: var(--green);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .post-hero-cta-btn:hover {
+    background: var(--green-dark);
+    text-decoration: none;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  @media (max-width: 600px) {
+    .post-hero-cta-text { font-size: 14px; }
+    .post-hero-cta-btn { font-size: 13px; padding: 10px 18px; }
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    padding: 72px 0;
+  }
+  .section-warm { background: var(--paper-warm); }
+  .section-blue {
+    background: var(--blue);
+    color: #fff;
+  }
+  .section-blue h2 { color: #fff; }
+  .section-blue p { color: rgba(255, 255, 255, 0.92); }
+
+  .section-eyebrow {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-blue .section-eyebrow {
+    color: var(--green);
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  h2 em { font-style: normal; color: var(--blue); }
+  .section-blue h2 em { color: var(--green); }
+
+  .section-lede {
+    font-size: 18px;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+  .section-blue .section-lede { color: rgba(255, 255, 255, 0.88); }
+
+  @media (max-width: 600px) {
+    .section { padding: 48px 0; }
+    h2 { font-size: 26px; }
+    .section-lede { font-size: 16px; margin-bottom: 32px; }
+  }
+
+  /* ===== ZONES (3 columns) ===== */
+  .zones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .zone {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .zone:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 88, 160, 0.12);
+  }
+  .zone-img {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: var(--paper-warm);
+  }
+  .zone-img img { width: 100%; height: 100%; object-fit: cover; }
+  .zone-body { padding: 24px; }
+  .zone-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .zone h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .zone p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .zone p strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 800px) {
+    .zones { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  /* ===== BRIDGE / RISK SECTION ===== */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .risk-img {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  }
+  .risk-text h2 { text-align: left; margin-bottom: 20px; }
+  .risk-text p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .risk-text p strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 900px) {
+    .risk-grid { grid-template-columns: 1fr; gap: 32px; }
+    .risk-text h2 { text-align: center; }
+  }
+
+  /* ===== BRIDGE FLOW (3-STEP NARRATIVE) ===== */
+  .bridge-flow {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 12px;
+    align-items: stretch;
+    max-width: 920px;
+  }
+  .bridge-step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .bridge-step .num {
+    font-size: 11px;
+    color: var(--blue);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .bridge-step .ttl {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .bridge-step .desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .bridge-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    font-size: 22px;
+    font-weight: 600;
+  }
+  @media (max-width: 800px) {
+    .bridge-flow { grid-template-columns: 1fr; }
+    .bridge-arrow { transform: rotate(90deg); padding: 4px 0; }
+  }
+
+  /* ===== CONSEQUENCES (DRAMATIC CASE FILES) ===== */
+  .consq-hero {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 36px 28px;
+    background: var(--ink);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .consq-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0,88,160,0.20), transparent 60%);
+    pointer-events: none;
+  }
+  .consq-hero > * { position: relative; z-index: 1; }
+  .consq-hero .label {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .consq-hero .megafig {
+    font-size: 88px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 14px;
+    letter-spacing: -0.03em;
+  }
+  .consq-hero .megafig::before {
+    content: '−';
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .consq-hero .sub {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .consq-hero .sub strong { color: #fff; font-weight: 600; }
+  @media (max-width: 700px) {
+    .consq-hero { padding: 28px 20px; }
+    .consq-hero .megafig { font-size: 60px; }
+    .consq-hero .sub { font-size: 16px; }
+  }
+
+  .consequences {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .consq {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 28px 28px 26px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: start;
+    transition: transform 0.2s;
+  }
+  .consq::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--green);
+  }
+  .consq:hover { transform: translateY(-2px); }
+  .consq-cost-block {
+    text-align: center;
+    padding-right: 22px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    min-width: 130px;
+  }
+  .consq-cost-block .num {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .consq-cost-block .lbl {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .consq h4 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .consq p {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.55;
+  }
+  .consq p strong { color: #fff; font-weight: 600; }
+  .consq.warning::before { background: #DC2626; }
+  .consq.warning .consq-cost-block .num { color: #FCA5A5; }
+  .consq.warning .consq-cost-block .lbl { color: #FCA5A5; }
+  @media (max-width: 900px) {
+    .consequences { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .consq { grid-template-columns: 1fr; gap: 14px; }
+    .consq-cost-block { padding-right: 0; padding-bottom: 14px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.12); text-align: left; }
+  }
+
+  /* ===== TRANSITION (VALUE CONTRAST) ===== */
+  .value-contrast {
+    background: var(--ink);
+    border-radius: 18px;
+    padding: 56px 40px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .value-contrast::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(60,175,0,0.14), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,88,160,0.16), transparent 50%);
+    pointer-events: none;
+  }
+  .value-contrast > * { position: relative; z-index: 1; }
+  .value-contrast .label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 20px;
+  }
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px;
+    align-items: center;
+    max-width: 880px;
+    margin: 0 auto 28px;
+  }
+  .value-side .num {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .value-side.bad .num { color: #fff; }
+  .value-side.bad .num::before {
+    content: '−';
+    color: rgba(255, 255, 255, 0.5);
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .value-side.good .num { color: var(--green); }
+  .value-side .lbl {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.4;
+  }
+  .value-divider {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 300;
+  }
+  .value-statement {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    max-width: 720px;
+    margin: 0 auto;
+    color: #fff;
+  }
+  .value-statement em {
+    font-style: normal;
+    color: var(--green);
+  }
+  @media (max-width: 700px) {
+    .value-contrast { padding: 40px 24px; }
+    .value-grid { grid-template-columns: 1fr; gap: 12px; }
+    .value-divider { font-size: 22px; }
+    .value-side .num { font-size: 38px; }
+    .value-statement { font-size: 18px; }
+  }
+
+  /* ===== PRODUCT SECTION ===== */
+  .product-hero {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .discount-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+  .discount-badge .pct {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .product-img {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 16px 48px rgba(0, 88, 160, 0.12);
+  }
+  .product-text h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .product-features {
+    list-style: none;
+    margin: 24px 0;
+  }
+  .product-features li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+  }
+  .product-features li:last-child { border-bottom: none; }
+  .check {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    background: var(--green);
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+  }
+  .check::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 6px;
+    border-left: 2.5px solid #fff;
+    border-bottom: 2.5px solid #fff;
+    transform: translate(-50%, -65%) rotate(-45deg);
+  }
+  .feat-ic {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    color: var(--blue);
+    border-radius: 50%;
+    position: relative;
+  }
+  .feat-ic svg {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: var(--blue);
+    stroke: none;
+  }
+  .product-cta-box {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .product-cta-box .pricing {
+    color: #fff;
+  }
+  .product-cta-box .pricing .now {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .product-cta-box .pricing .was {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: line-through;
+    margin-left: 8px;
+    font-size: 16px;
+  }
+  .product-cta-box .pricing .save {
+    display: inline-block;
+    margin-top: 4px;
+    background: var(--green);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .product-cta-box .product-cta {
+    background: var(--green);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 8px 24px rgba(60, 175, 0, 0.32);
+  }
+  .product-cta-box .product-cta:hover {
+    background: var(--green-dark);
+    text-decoration: none;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .product-features li strong { color: var(--ink); font-weight: 600; }
+  .product-features li span { color: var(--ink-soft); display: block; font-size: 14px; margin-top: 2px; }
+  @media (max-width: 900px) {
+    .product-grid { grid-template-columns: 1fr; gap: 32px; }
+    .product-text h3 { font-size: 22px; }
+  }
+
+  /* ===== SOLUTION MAP ===== */
+  .solution-map {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    gap: 14px;
+  }
+  .solution-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    padding: 18px 22px;
+  }
+  .solution-row .sol-num {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    background: #DCFCE7;
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.06em;
+  }
+  .solution-row strong {
+    color: var(--ink);
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  .solution-row span {
+    display: block;
+    margin-top: 6px;
+    color: var(--green-dark);
+    font-weight: 600;
+    font-size: 14.5px;
+  }
+  .solution-row > div {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ===== TRUST STRIP ===== */
+  .trust-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding: 40px 32px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin-top: 56px;
+  }
+  .trust-item {
+    text-align: center;
+  }
+  .trust-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .trust-item strong {
+    display: block;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+  .trust-item span {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  @media (max-width: 700px) {
+    .trust-strip { grid-template-columns: repeat(2, 1fr); padding: 24px; }
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .testimonial {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  .testimonial-stars {
+    color: #F59E0B;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .testimonial-quote {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .testimonial-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .testimonial-name {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .testimonial-meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 1000px) {
+    .testimonials { grid-template-columns: 1fr; max-width: 600px; }
+  }
+  .testimonial-avatar.placeholder {
+    background: var(--blue-soft);
+    color: var(--blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 4px 0;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 22px 0;
+    text-align: left;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-q:hover { color: var(--blue); }
+  .faq-q .icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--blue-soft);
+    color: var(--blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    transition: transform 0.2s;
+  }
+  .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .faq-item.open .faq-a {
+    max-height: 600px;
+  }
+  .faq-a-inner { padding: 0 0 22px; }
+  .faq-a-inner p { margin-bottom: 10px; }
+  .faq-a-inner p:last-child { margin-bottom: 0; }
+
+  /* ===== BUY BOX (KOMFORO-STYLE TWO-COLUMN) ===== */
+  .buy-box {
+    background: #fff;
+    border: 2px solid var(--blue);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 24px 64px rgba(0, 88, 160, 0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .buy-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .buy-gallery-main {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #F8F9FB;
+    aspect-ratio: 1 / 1;
+  }
+  .buy-gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .buy-gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .buy-gallery-thumbs img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .buy-gallery-thumbs img:hover {
+    border-color: var(--blue);
+    transform: translateY(-1px);
+  }
+  .buy-gallery-thumbs img.active {
+    border-color: var(--blue);
+    border-width: 2px;
+  }
+  .buy-info { display: flex; flex-direction: column; }
+  .feature-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0 18px;
+  }
+  .feature-pills .pill {
+    background: var(--blue-soft);
+    color: var(--blue);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 800px) {
+    .buy-box { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+  }
+  .buy-box-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .buy-tag {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    background: #DCFCE7;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .buy-rating { font-size: 14px; color: var(--ink-soft); }
+  .buy-rating .stars { color: #F59E0B; margin-right: 4px; }
+  .buy-box h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .buy-sub {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+  .price-now {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .price-was {
+    font-size: 18px;
+    color: var(--ink-soft);
+    text-decoration: line-through;
+  }
+  .price-save {
+    font-size: 14px;
+    color: var(--green);
+    font-weight: 700;
+    background: #DCFCE7;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .price-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .discount-code-row {
+    background: var(--paper-warm);
+    border: 1px dashed var(--green);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .discount-code-label {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .discount-code-label strong { color: var(--green); font-weight: 700; }
+  .discount-code {
+    font-family: 'Courier New', monospace;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+  }
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: var(--green);
+    color: #fff;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 28px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.1s;
+    text-transform: uppercase;
+  }
+  .cta-btn:hover {
+    background: var(--green-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  .buy-trust {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .buy-trust-item { display: flex; align-items: center; gap: 6px; }
+  .buy-trust-item::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+  }
+  .payment-icons {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .pay-icon {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    height: 32px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+  }
+  .pay-icon img {
+    max-height: 18px;
+    max-width: 56px;
+    width: auto;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .buy-box { padding: 28px 22px; }
+    .buy-box h3 { font-size: 22px; }
+    .price-now { font-size: 30px; }
+    .cta-btn { font-size: 16px; padding: 16px 20px; }
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--ink);
+    color: #fff;
+    padding: 48px 0 32px;
+    text-align: center;
+  }
+  .footer-logo-img {
+    height: 44px;
+    width: auto;
+    margin: 0 auto 14px;
+    display: block;
+    background: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+  }
+  .footer-logo-fallback {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .footer-logo-fallback span { color: var(--green); }
+  .footer-tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-meta {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== ANNOUNCEMENT BAR ===== -->
+<div class="announce">
+  Versand bis 10 Uhr — heute noch versendet · <strong>60 Tage Geld-zurück-Garantie</strong> · 100.000+ zufriedene Kunden
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="https://hilosports.de" aria-label="HiLo sports — zum Shop">
+      <img src="https://hilosports.de/cdn/shop/files/HiLo_sports_LOGO_2.png?v=1614288283"
+           alt="HiLo sports"
+           class="logo-img"
+           onerror="this.outerHTML='<span class=\'logo-fallback\'>HiLo<span> sports</span></span>'">
+    </a>
+    <div class="header-offer">
+      <div class="header-offer-text">
+        <div class="top">Transportschutz-Set · <em>−10% Rabatt</em></div>
+        <div class="bot">€69,99 <s>€77,07</s></div>
+      </div>
+      <a href="https://hilosports.de/discount/SCHUTZ10?redirect=/products/transportschutz-set" class="header-cta">Jetzt bestellen →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="hero-eyebrow">E-Bike Transportschutz-Set</span>
+      <h1>ACHTUNG: Diese drei Teile können dein gesamtes E-Bike <em>ruinieren!</em></h1>
+      <p class="lede"><strong>Motor, Akku und Lenkerbereich</strong> gehören zu den empfindlichsten und teuersten Bereichen deines E-Bikes. Auf dem Heckträger sind sie Regen, Schmutz und Spritzwasser oft schutzlos ausgesetzt. Zum Glück haben wir eine Lösung…</p>
+      <div class="hero-trust-icons">
+        <div class="hero-trust-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 00-.84-.99L16 11l-2.7-3.6a1 1 0 00-.8-.4H5.24a2 2 0 00-1.8 1.1l-.8 1.63A6 6 0 002 12.42V15a1 1 0 001 1h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span>
+          <span><strong>Alle Fahrzeuge geeignet</strong> — auch PKW</span>
+        </div>
+        <div class="hero-trust-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 9h4l3 3v6h-7"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg></span>
+          <span><strong>Kostenloser Versand</strong> — versandfertig in 24h</span>
+        </div>
+        <div class="hero-trust-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <span><strong>60 Tage Geld-zurück-Garantie</strong> — ohne Wenn und Aber</span>
+        </div>
+      </div>
+
+      <a href="https://hilosports.de/discount/SCHUTZ10?redirect=/products/transportschutz-set" class="hero-cta-btn">
+        Jetzt mit 10% Rabatt kaufen
+        <span aria-hidden="true">→</span>
+      </a>
+      <span class="hero-cta-sub">Nur <strong>€69,99</strong> statt €77,07 · auf Lager · 2–3 Werktage Lieferzeit</span>
+    </div>
+    <div class="hero-img">
+      <img src="img-hero-new.jpg" alt="HiLo E-Bike Transportschutz-Set — Header Creative">
+    </div>
+  </div>
+</section>
+
+<!-- ===== POST-HERO CTA STRIP ===== -->
+<div class="post-hero-cta">
+  <div class="wrap post-hero-cta-inner">
+    <div class="post-hero-cta-text"><strong>10% Rabatt</strong> · Komplett-Schutz für €69,99 statt €77,07 · auf Lager &amp; sofort versandbereit</div>
+    <a href="https://hilosports.de/discount/SCHUTZ10?redirect=/products/transportschutz-set" class="post-hero-cta-btn">Zum Angebot →</a>
+  </div>
+</div>
+
+<!-- ===== THREE SENSITIVE ZONES ===== -->
+<section class="section section-warm">
+  <div class="wrap">
+    <span class="section-eyebrow">Die 3 empfindlichsten Bauteile</span>
+    <h2>Genau hier entscheidet sich, ob dein E-Bike <em>den nächsten Urlaub übersteht.</em></h2>
+    <p class="section-lede">Während dein E-Bike auf dem Heckträger sitzt, sind genau die drei Komponenten besonders gefährdet, die im Schadensfall richtig teuer werden. Deshalb lohnt sich ein genauer Blick auf jede einzelne.</p>
+
+    <div class="zones">
+      <div class="zone">
+        <div class="zone-img"><img src="img-zone-motor.jpg" alt="Mid-Drive Motor eines E-Bikes — Detailaufnahme"></div>
+        <div class="zone-body">
+          <div class="zone-num">01 · Motor</div>
+          <h3>Der Motor. <br>€800–€1.500 im Schadensfall.</h3>
+          <p>Mid-Drive Motoren sitzen <strong>direkt unten am Tretlager</strong> — exakt dort, wo Spritzwasser und Straßenmatsch auftreffen. Ein Wassereintritt ins Gehäuse oder ein Riss im Motorlager ist einer der teuersten E-Bike-Schäden überhaupt.</p>
+        </div>
+      </div>
+
+      <div class="zone">
+        <div class="zone-img"><img src="img-zone-battery.jpg" alt="Frame-integrierter E-Bike Akku — Detailaufnahme"></div>
+        <div class="zone-body">
+          <div class="zone-num">02 · Akku</div>
+          <h3>Der Akku.<br>€600–€1.200 im Schadensfall.</h3>
+          <p>Der Akku ist die <strong>teuerste Einzelkomponente</strong> deines E-Bikes. Korrosion an den Kontakten, Feuchtigkeit am Verschluss oder ein Steinchen am Gehäuse — und du fährst plötzlich nur noch mit halber Reichweite oder gar nicht mehr.</p>
+        </div>
+      </div>
+
+      <div class="zone">
+        <div class="zone-img"><img src="img-zone-display.jpg" alt="E-Bike Display am Lenker — Detailaufnahme"></div>
+        <div class="zone-body">
+          <div class="zone-num">03 · Lenker</div>
+          <h3>Display &amp; Lenker.<br>€200–€500 im Schadensfall.</h3>
+          <p>Am Lenker sitzen <strong>Display, Bedienelemente und empfindliche Anschlüsse</strong> direkt im Fahrtwind. Regen, Schmutz und Spritzwasser können hier schnell zu Feuchtigkeitsschäden, Anzeigefehlern oder Steuerungsproblemen führen — oft mit teuren Werkstattbesuchen als Folge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRIDGE: COMPONENTS → TRANSPORT REALITY → CONSEQUENCES ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="risk-grid">
+      <div class="risk-img">
+        <img src="img-risk-rain.jpg" alt="E-Bike auf Wohnmobil-Heckträger im starken Regen auf der Autobahn — schutzlos der Witterung ausgesetzt">
+      </div>
+      <div class="risk-text">
+        <span class="section-eyebrow" style="text-align: left;">Vom Bauteil zum Schaden — manchmal reicht eine Fahrt</span>
+        <h2>Auf dem Heckträger ist dein E-Bike <em>Wetter und Straße direkt ausgesetzt.</em></h2>
+        <p>Du hast oben die <strong>drei empfindlichsten Bereiche</strong> gesehen. Was viele beim Transport unterschätzen: Schon eine längere Fahrt im Regen kann reichen, damit Spritzwasser, Schmutz und kleine Steinchen genau dort auftreffen, wo dein E-Bike besonders empfindlich ist.</p>
+        <p><strong>Motor, Akku und Lenkerbereich</strong> sitzen auf dem Heckträger oft ungeschützt im Fahrtwind — und genau das macht sie bei längeren Strecken so anfällig für Schäden.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CONSEQUENCES (CASE FILES) ===== -->
+<section class="section section-warm">
+  <div class="wrap">
+    <h2>Wenn Schutz fehlt, <em>zahlst du diese Rechnung.</em></h2>
+    <p class="section-lede">Hier siehst du 6 reale Schadensfälle, die E-Bike Werkstätten Woche für Woche sehen — und die zusammengenommen zu einem Worst Case führen, den jeder E-Biker fürchtet!</p>
+
+    <div class="consq-hero">
+      <span class="label">Worst Case · alle Schäden zusammen</span>
+      <div class="megafig">€2.700</div>
+      <p class="sub">So viel kann unzureichender Transportschutz dein E-Bike <strong>real kosten</strong> — Reparaturen plus Wertverlust beim Wiederverkauf. Jede einzelne Position unten ist mit einer Vorkehrung von <strong>€69,99</strong> vermeidbar.</p>
+    </div>
+
+    <div class="consequences">
+      <div class="consq">
+        <div class="consq-cost-block">
+          <div class="num">€1.200</div>
+          <div class="lbl">Schaden</div>
+        </div>
+        <div>
+          <h4>Akku-Korrosion bis zum Totalausfall</h4>
+          <p>Feuchtigkeit kriecht über die Kontaktleiste in den Akku. <strong>Reichweite halbiert sich</strong> — oder das Bike springt morgens einfach nicht mehr an. Akkus dieser Klasse sind nicht reparabel, nur tauschbar.</p>
+        </div>
+      </div>
+
+      <div class="consq">
+        <div class="consq-cost-block">
+          <div class="num">€500</div>
+          <div class="lbl">Schaden</div>
+        </div>
+        <div>
+          <h4>Display-Defekt durch Feuchtigkeit</h4>
+          <p>Ein einziger Wassertropfen unter dem Bezel reicht. <strong>Anzeigefehler, Steuerungsausfälle, Glasbrüche</strong> durch Insektenschlag bei Tempo 130 — und du bist auf dem Weg in die Werkstatt.</p>
+        </div>
+      </div>
+
+      <div class="consq">
+        <div class="consq-cost-block">
+          <div class="num">−30%</div>
+          <div class="lbl">Lebensdauer</div>
+        </div>
+        <div>
+          <h4>Beschleunigte Alterung der Elektronik</h4>
+          <p>Was nicht sofort ausfällt, altert schneller. <strong>Salznässe, UV-Strahlung und Vibrationen</strong> verkürzen die Lebensdauer empfindlicher Bauteile um Jahre — du merkst es erst nach Saison drei.</p>
+        </div>
+      </div>
+
+      <div class="consq warning">
+        <div class="consq-cost-block">
+          <div class="num">!</div>
+          <div class="lbl">Sicherheits&shy;relevant</div>
+        </div>
+        <div>
+          <h4>Bremssensoren verschmutzt</h4>
+          <p>Dreck, Rost und Salz an Sensoren stören die <strong>Schiebehilfe und das Pedalverhalten</strong>. Im Stadtverkehr oder am Berg ein echtes Sicherheitsrisiko, das du selbst nicht reparieren kannst.</p>
+        </div>
+      </div>
+
+      <div class="consq">
+        <div class="consq-cost-block">
+          <div class="num">€800</div>
+          <div class="lbl">Wertverlust</div>
+        </div>
+        <div>
+          <h4>Sichtbare Transport-Schäden</h4>
+          <p>Ein E-Bike mit Kratzern, Korrosion oder reparierten Stellen verliert beim Wiederverkauf <strong>15–25 % an Wert</strong>. Bei einem €5.000 Bike sind das schnell €750–€1.250 weg.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE CONTRAST TRANSITION ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="value-contrast">
+      <div class="label">Die ehrliche Rechnung</div>
+      <div class="value-grid">
+        <div class="value-side bad">
+          <div class="num">€2.700</div>
+          <div class="lbl">mögliche Schäden im Worst Case<br>+ Wertverlust beim Wiederverkauf</div>
+        </div>
+        <div class="value-divider">vs.</div>
+        <div class="value-side good">
+          <div class="num">€69,99</div>
+          <div class="lbl">einmalig — und du sparst dir <br>jede dieser Reparaturen ab Tag 1</div>
+        </div>
+      </div>
+      <p class="value-statement">Du musst nicht das Auto wechseln. Du musst nicht garagieren. Du brauchst nur <em>drei Hüllen über drei Bauteile</em> — Akku, Motor, Lenker.</p>
+      <p class="value-statement" style="margin-top: 18px; font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85);">Also, spare nicht am falschen Ende, bevor es richtig teuer wird…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT INTRO ===== -->
+<section class="section section-blue">
+  <div class="wrap">
+    <div class="product-hero">
+      <div class="discount-badge">
+        <span class="pct">−10%</span>
+        <span>Auf das komplette Transportschutz-Set</span>
+      </div>
+      <span class="section-eyebrow">Die Lösung</span>
+      <h2>Das E-Bike Transportschutz Set — <em>Schütze alle drei Bauteile mit einem Set!</em></h2>
+      <p class="section-lede">Motor-, Akku- und Lenkerschutz aus 5 mm dickem Neopren — wasserdicht und reißfest. Ein Set, drei Komponenten, kompletter Schutz für 99% aller E-Bikes.</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-img">
+        <img src="https://hilosports.de/cdn/shop/files/transportschutzset.jpg?v=1748619334" alt="HiLo sports E-Bike Transportschutz-Set — Motor-, Akku- und Lenker-Schutzhüllen">
+      </div>
+      <div class="product-text" style="color: #fff;">
+        <h3 style="color: #fff;">Drei Schutzhüllen. Eine Investition. Kein Kompromiss.</h3>
+        <ul class="product-features" style="color: rgba(255,255,255,0.95);">
+          <li>
+            <span class="feat-ic"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></span>
+            <div>
+              <strong style="color: #fff;">3-fach Elektronik-Schutz</strong>
+              <span style="color: rgba(255,255,255,0.8);">Motor, Akku und Lenker in einem Set — die drei teuersten Komponenten deines E-Bikes komplett abgedeckt.</span>
+            </div>
+          </li>
+          <li>
+            <span class="feat-ic"><svg viewBox="0 0 20 20"><path d="M10 2c-3 4-5 7.5-5 10.5a5 5 0 0010 0C15 9.5 13 6 10 2z"/></svg></span>
+            <div>
+              <strong style="color: #fff;">100% wasserdichte Materialien</strong>
+              <span style="color: rgba(255,255,255,0.8);">Hält Spritzwasser, Regen und Straßennässe zuverlässig draußen — auch bei langen Autobahn-Etappen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="feat-ic"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0-3a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/></svg></span>
+            <div>
+              <strong style="color: #fff;">Perfekte Passform bei 99% aller E-Bikes</strong>
+              <span style="color: rgba(255,255,255,0.8);">Kompatibel mit Bosch, Shimano, Yamaha, Brose. Pedalstellung frei wählbar — passt auch über Lenker mit Hörnchen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="feat-ic"><svg viewBox="0 0 20 20"><path d="M3 4.5a1 1 0 011-1h12a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zm0 5a1 1 0 011-1h12a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zm0 5a1 1 0 011-1h12a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1z"/></svg></span>
+            <div>
+              <strong style="color: #fff;">5 mm dickes Neopren-Material</strong>
+              <span style="color: rgba(255,255,255,0.8);">Dämpft Aufprall von Steinchen und Schmutzpartikeln zuverlässig ab — und schützt auch vor Kratzern beim Auf- und Abladen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="feat-ic"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h7a2 2 0 012 2v1h2a1 1 0 01.8.4l2 2.667A1 1 0 0118 11v3a1 1 0 01-1 1h-.55a2.5 2.5 0 01-4.9 0H8.45a2.5 2.5 0 01-4.9 0H3a1 1 0 01-1-1V6zm12 4h2.5L15 8h-1v2zM6 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm9 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd"/></svg></span>
+            <div>
+              <strong style="color: #fff;">Alle Fahrzeuge geeignet — auch PKW</strong>
+              <span style="color: rgba(255,255,255,0.8);">PKW, Kastenwagen, Camper Van, Wohnmobil — egal welcher Träger, egal welche Strecke. Werkzeuglos montiert.</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="product-cta-box">
+          <div class="pricing">
+            <span class="now">€69,99</span><span class="was">€77,07</span>
+            <div><span class="save">−10% Rabatt · Set für 1 E-Bike</span></div>
+          </div>
+          <a href="https://hilosports.de/discount/SCHUTZ10?redirect=/products/transportschutz-set" class="product-cta">Jetzt mit 10% Rabatt kaufen →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTALLED SHOT + SOLUTION MAPPING ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="risk-grid" style="margin-bottom: 36px;">
+      <div class="risk-text">
+        <span class="section-eyebrow" style="text-align: left;">So sieht der Schutz im Einsatz aus</span>
+        <h2>Drei Hüllen über drei Bauteile. <em>Sechs Schäden vermieden.</em></h2>
+        <p>Genau die Risiken, die du gerade gesehen hast — Akku-Korrosion, Display-Defekt, Sensoren-Verschmutzung, Lebensdauer-Verkürzung, Wertverlust — verhinderst du mit einer einzigen Vorkehrung. Hier siehst du, wie das im Alltag aussieht.</p>
+      </div>
+      <div class="risk-img">
+        <img src="https://hilosports.de/cdn/shop/files/transportschutz-fahrradtraeger_510249fc-afe9-47e7-9f54-a844b0bc12aa.jpg?v=1748619334" alt="E-Bike mit installiertem HiLo Transportschutz-Set auf Heckträger">
+      </div>
+    </div>
+
+    <div class="solution-map">
+      <div class="solution-row">
+        <span class="sol-num">01</span>
+        <div><strong>Akkuschutz</strong> umschließt die gesamte Akku-Einheit inklusive Kontaktleiste und Verschluss. <span>→ Korrosion verhindert · Reichweite gesichert · keine Akku-Tausch-Kosten.</span></div>
+      </div>
+      <div class="solution-row">
+        <span class="sol-num">02</span>
+        <div><strong>Motorschutz</strong> liegt passgenau auf dem Mid-Drive-Gehäuse — 5 mm Neopren hält Wasser und Schmutz zuverlässig draußen. <span>→ Lager geschützt · Motor bleibt dicht · keine Werkstattbesuche.</span></div>
+      </div>
+      <div class="solution-row">
+        <span class="sol-num">03</span>
+        <div><strong>Lenkerschutz</strong> deckt Display, Bedienelemente und das gesamte Cockpit lückenlos ab — auch über Lenker mit Hörnchen. <span>→ Display-Defekte verhindert · Bremssensoren bleiben sauber · keine Werkstattbesuche.</span></div>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <strong>60 Tage Geld zurück</strong>
+        <span>Ohne Wenn und Aber</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 9h4l3 3v6h-7"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>
+        </div>
+        <strong>Versand am selben Tag</strong>
+        <span>Bei Bestellung bis 10 Uhr</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <strong>4.8 / 5 Sterne</strong>
+        <span>Aus 100.000+ Bestellungen</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-9 4 6 3-4 6 7H3z"/><circle cx="17" cy="6" r="2"/></svg>
+        </div>
+        <strong>Versand aus Österreich</strong>
+        <span>MH Direkt, Lauterach</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section section-warm">
+  <div class="wrap">
+    <span class="section-eyebrow">Erfahrungen unserer Kunden</span>
+    <h2>Was E-Biker nach der ersten Reise mit dem Set <em>wirklich sagen.</em></h2>
+    <p class="section-lede">Drei Stimmen aus über 100.000 Bestellungen — alle drei haben das Set auf längeren Touren ausgiebig getestet.</p>
+
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Vor dem Set hatte ich nach jeder längeren Fahrt einen verdreckten Akku und einen feuchten Display-Bezel. Jetzt komme ich nach 600 km Italien-Tour an und das Bike ist trocken und sauber. Genau das, was ich wollte."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="img-testimonial-walter.jpg" alt="Walter K., zufriedener Kunde"></div>
+          <div>
+            <div class="testimonial-name">Walter K., 65</div>
+            <div class="testimonial-meta">Verifizierter Käufer · Wohnmobil-Tour</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Letzten Sommer kamen wir bei strömendem Regen am Urlaubsort an — die Akkus waren feucht, das Display beschlagen, der ganze Lenker tropfte. Mit dem Set fahren wir jetzt bei jedem Wetter los: trocken angekommen, sofort einsatzbereit. Genau das, was wir wollten."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="img-testimonial-renate.jpg" alt="Renate M., zufriedene Kundin"></div>
+          <div>
+            <div class="testimonial-name">Renate M., 60</div>
+            <div class="testimonial-meta">Verifizierte Käuferin · Wochenend-Touren</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Wir machen jedes Jahr drei Wochen Wohnmobil-Urlaub in den Alpen — da ist Schlechtwetter Pflicht. Das Set bleibt einfach montiert, egal ob Regen, Sonne oder Berg-Tunnel. Endlich muss ich abends nicht mehr alles abdecken."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="img-testimonial-hans.jpg" alt="Hans G., zufriedener Kunde"></div>
+          <div>
+            <div class="testimonial-name">Hans G., 67</div>
+            <div class="testimonial-meta">Verifizierter Käufer · Alpen-Tour</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="https://hilosports.de/discount/SCHUTZ10?redirect=/products/transportschutz-set" class="hero-cta-btn" style="display: inline-flex;">
+        Jetzt Kosten vermeiden &amp; 10% sparen
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BUY BOX ===== -->
+<section class="section section-warm" id="buy-box">
+  <div class="wrap">
+    <span class="section-eyebrow">Jetzt schützen — bevor es teuer wird</span>
+    <h2>Drei Hüllen. <em>Bis zu €2.700 Risiko abgedeckt.</em></h2>
+    <p class="section-lede">Eine kleine Vorsorge im Vergleich zu möglichen Reparaturen — und mit 10% Rabatt direkt im Set für 1 E-Bike. Auf Lager, versandfertig in 24 Stunden, 60 Tage Rückgaberecht.</p>
+
+    <div class="buy-box">
+      <div class="buy-gallery">
+        <div class="buy-gallery-main">
+          <img id="bgMain" src="https://hilosports.de/cdn/shop/files/transportschutzset.jpg?v=1748619334" alt="HiLo E-Bike Transportschutz-Set — komplettes Set">
+        </div>
+        <div class="buy-gallery-thumbs">
+          <img class="active" data-src="https://hilosports.de/cdn/shop/files/transportschutzset.jpg?v=1748619334" src="https://hilosports.de/cdn/shop/files/transportschutzset.jpg?v=1748619334" alt="Set Übersicht">
+          <img data-src="https://hilosports.de/cdn/shop/files/fahrradtransportschutz_9030c387-e788-4634-88fb-4c804aa38e7b.jpg?v=1748619334" src="https://hilosports.de/cdn/shop/files/fahrradtransportschutz_9030c387-e788-4634-88fb-4c804aa38e7b.jpg?v=1748619334" alt="Motorschutz">
+          <img data-src="https://hilosports.de/cdn/shop/files/ebikeakkuschutzhuelle_132caf08-1afe-4a0e-9ae1-62ce1d89c446.jpg?v=1748619334" src="https://hilosports.de/cdn/shop/files/ebikeakkuschutzhuelle_132caf08-1afe-4a0e-9ae1-62ce1d89c446.jpg?v=1748619334" alt="Akkuschutz">
+          <img data-src="https://hilosports.de/cdn/shop/files/ebiketransportschutz_b8ea7519-0bd9-48b1-8f45-430cc04b2f27.jpg?v=1748619334" src="https://hilosports.de/cdn/shop/files/ebiketransportschutz_b8ea7519-0bd9-48b1-8f45-430cc04b2f27.jpg?v=1748619334" alt="Lenkerschutz">
+        </div>
+      </div>
+
+      <div class="buy-info">
+        <div class="buy-box-top">
+          <span class="buy-tag">−10% Rabatt</span>
+          <span class="buy-rating"><span class="stars">★★★★★</span> 4.7 · 303 Bewertungen</span>
+        </div>
+        <h3>E-Bike Transportschutz-Set</h3>
+        <p class="buy-sub">Motor-, Akku- und Lenkerschutz in einem Set — 100% wasserdicht, 5 mm Neopren, werkzeuglos montiert.</p>
+
+        <div class="feature-pills">
+          <span class="pill">5 mm Neopren</span>
+          <span class="pill">100% wasserdicht</span>
+          <span class="pill">99% Passform</span>
+          <span class="pill">Bosch · Shimano · Brose · Yamaha</span>
+          <span class="pill">Auch für PKW</span>
+          <span class="pill">Werkzeuglos</span>
+        </div>
+
+        <div class="price-row">
+          <span class="price-now">€69,99</span>
+          <span class="price-was">€77,07</span>
+          <span class="price-save">−10%</span>
+        </div>
+        <p class="price-note">Inkl. MwSt. · Kostenloser Versand ab €49 · Auf Lager · Lieferzeit 2–3 Werktage</p>
+
+        <div class="discount-code-row">
+          <span class="discount-code-label"><strong>10% Rabatt aktivieren</strong> — Code im Checkout:</span>
+          <span class="discount-code">SCHUTZ10</span>
+        </div>
+
+        <a href="https://hilosports.de/discount/SCHUTZ10?redirect=/products/transportschutz-set" class="cta-btn">Jetzt mit 10% Rabatt kaufen →</a>
+
+        <div class="buy-trust">
+          <span class="buy-trust-item">60 Tage Geld zurück</span>
+          <span class="buy-trust-item">Versand am selben Tag</span>
+          <span class="buy-trust-item">Aus Österreich</span>
+        </div>
+
+        <div class="payment-icons">
+          <span class="pay-icon"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/visa.svg" alt="Visa"></span>
+          <span class="pay-icon"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/mastercard.svg" alt="Mastercard" style="max-height:22px"></span>
+          <span class="pay-icon"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/paypal.svg" alt="PayPal"></span>
+          <span class="pay-icon" style="background:#FFB3C7;border-color:#FFB3C7;"><span style="font-size:11px;font-weight:800;color:#17120F;letter-spacing:0.02em;">Klarna.</span></span>
+          <span class="pay-icon"><span style="font-size:10px;font-weight:700;color:#232F3E;letter-spacing:0.02em;">amazon</span><span style="font-size:10px;font-weight:700;color:#FF9900;letter-spacing:0.02em;margin-left:2px;">pay</span></span>
+          <span class="pay-icon" style="font-size:11px;font-weight:700;color:var(--ink-soft);letter-spacing:0.04em;">SEPA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section">
+  <div class="wrap-narrow">
+    <span class="section-eyebrow">Häufige Fragen</span>
+    <h2>Alles, was du vor dem Kauf <em>wissen solltest.</em></h2>
+    <p class="section-lede">Wenn deine Frage hier nicht dabei ist, schreib uns einfach an <a href="mailto:info@hilosports.de">info@hilosports.de</a>.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Passt das Set auf mein E-Bike-Modell?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Das Transportschutz-Set ist mit allen gängigen E-Bike-Marken kompatibel — darunter Bosch, Shimano, Yamaha, Brose und alle frei stehenden Mid-Drive-Motoren. Die Schutzhüllen haben elastische Bündchen und Klett-Verschlüsse, die sich an verschiedene Motorgrößen, Akku-Formen und Display-Typen anpassen.</p>
+            <p>Bei Unsicherheit: Wir haben 60 Tage Geld-zurück-Garantie. Probier es einfach aus — passt es nicht, schickst du es kostenlos zurück.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Wie wird das Set montiert?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Schnell und werkzeuglos — ohne Anleitung. Du ziehst die Motorhülle einfach über das Tretlager, legst die Akku-Hülle um den Akku und befestigst die Display-Hülle am Lenker. Klett-Verschlüsse halten alles sicher in Position.</p>
+            <p>Wir haben zusätzlich ein kurzes Montage-Video, das dir die Anbringung Schritt für Schritt zeigt — den Link findest du auf der Bestätigungsseite nach dem Kauf.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Funktioniert das auch bei Wohnmobil und Camper Van?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Ja — das Set funktioniert auf jedem Fahrzeug mit Heckträger: PKW, Kombi, Kastenwagen, Camper Van und Wohnmobil. Die Schutzhüllen sitzen direkt am E-Bike, nicht am Träger — die Fahrzeugart spielt also keine Rolle.</p>
+            <p>Speziell auf Wohnmobil-Touren mit langen Tagen auf der Autobahn und wechselndem Wetter ist das Set besonders sinnvoll, weil die Belastung dort am größten ist.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Wie lange dauert der Versand?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Bestellungen bis 10 Uhr versenden wir am selben Tag aus unserem Lager in Lauterach, Vorarlberg, Österreich. Im Schnitt liefern wir <strong>Bestelltag + 1,5 Werktage</strong> — also schneller, als die meisten erwarten.</p>
+            <p>Wir liefern nach Deutschland, Österreich, in die Schweiz, nach Belgien und Dänemark. Versandinfos im Detail: <a href="https://hilosports.de/pages/versand-retouren" target="_blank">hilosports.de/pages/versand-retouren</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Was, wenn das Set mir nicht gefällt?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Du hast <strong>60 Tage volle Geld-zurück-Garantie</strong> — ohne Wenn und Aber. Falls dir das Set nicht gefällt, nicht passt oder du dich anders entscheidest, schickst du es einfach zurück und bekommst den vollen Kaufpreis erstattet.</p>
+            <p>Den Retourenprozess findest du in deiner Bestätigungsmail oder auf <a href="https://hilosports.de/pages/versand-retouren" target="_blank">unserer Versand- und Retourenseite</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Warum ist das Set teurer als auf Amazon?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Wir verkaufen unsere Produkte ehrlicherweise auch auf Amazon — der Preis ist identisch. Was du hier zusätzlich bekommst: <strong>direkten Kundenservice aus Österreich</strong>, schnelleren Versand (bis 10 Uhr bestellt = heute versendet) und unsere 60-Tage-Garantie auch ohne Amazon-Account.</p>
+            <p>Außerdem: Wir entwickeln, prüfen und liefern jedes Produkt selbst. Sebastian (Maschinenbau-Ingenieur und Mitgründer) inspiziert die Fertigung in China persönlich. Was bei uns auf der Webseite versprochen wird, hält das Produkt am Ende auch — das ist nicht überall in der Branche so.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <img src="https://hilosports.de/cdn/shop/files/HiLo_sports_LOGO_2.png?v=1614288283"
+         alt="HiLo sports"
+         class="footer-logo-img"
+         onerror="this.outerHTML='<div class=\'footer-logo-fallback\'>HiLo<span> sports</span></div>'">
+    <p class="footer-tagline">Fahrradzubehör aus Leidenschaft. Entwickelt von Radfahrern, getestet auf Herz und Nieren.</p>
+    <div class="footer-links">
+      <a href="https://hilosports.de/pages/versand-retouren">Versand &amp; Retouren</a>
+      <a href="https://hilosports.de/pages/agb">AGB</a>
+      <a href="https://hilosports.de/pages/datenschutz">Datenschutz</a>
+      <a href="https://hilosports.de/pages/impressum">Impressum</a>
+      <a href="mailto:info@hilosports.de">Kontakt</a>
+    </div>
+    <p class="footer-meta">
+      Versand aus Lauterach, Vorarlberg, Österreich · MH Direkt<br>
+      © 2026 HiLo sports — alle Rechte vorbehalten
+    </p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Buy-box gallery thumbnails
+  const bgMain = document.getElementById('bgMain');
+  document.querySelectorAll('.buy-gallery-thumbs img').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const src = thumb.dataset.src || thumb.src;
+      if (bgMain) bgMain.src = src;
+      document.querySelectorAll('.buy-gallery-thumbs img').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
