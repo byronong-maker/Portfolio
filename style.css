@@ -879,11 +879,29 @@ ul {
 }
 
 .experience-card.expanded .experience-details {
-    max-height: 500px;
+    max-height: 350px;
+    overflow-y: auto;
     opacity: 1;
     margin-top: 22px;
     padding-top: 22px;
     border-top: 1px solid #e2e8f0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f1f5f9;
+    padding-right: 8px;
+}
+
+.experience-card.expanded .experience-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.experience-card.expanded .experience-details::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.experience-card.expanded .experience-details::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
 }
 
 .experience-details h4 {
