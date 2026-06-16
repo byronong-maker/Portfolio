@@ -47,6 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 3D Preview fallback management: hide fallback once iframe loads
+    const threeIframe = document.getElementById('three-d-iframe');
+    const threeFallback = document.getElementById('three-d-fallback');
+    if (threeIframe) {
+        threeIframe.addEventListener('load', () => {
+            if (threeFallback) {
+                threeFallback.style.display = 'none';
+            }
+        });
+    }
+
     const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
@@ -64,6 +75,65 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// 3D cube interactions (pure CSS 3D, with optional mouse drag)
+const cube = document.getElementById('cube3d');
+const stage = document.getElementById('cube-stage');
+let angleX = -25;
+let angleY = 25;
+let autoRotate = true;
+
+function applyCubeTransform() {
+  if (cube) {
+    cube.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+  }
+}
+
+if (cube) {
+  // initial render
+  applyCubeTransform();
+  // auto-rotate loop
+  const loop = () => {
+    if (autoRotate) {
+      angleY += 0.6;
+      angleX += 0.2;
+      applyCubeTransform();
+    }
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+}
+
+const toggleBtn = document.getElementById('toggle-rotate');
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    autoRotate = !autoRotate;
+    toggleBtn.textContent = autoRotate ? 'Pause Rotation' : 'Resume Rotation';
+  });
+}
+
+// Drag to rotate
+let dragging = false;
+let lastX = 0;
+let lastY = 0;
+if (stage) {
+  stage.addEventListener('mousedown', (e) => {
+    dragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    angleY += dx * 0.4;
+    angleX -= dy * 0.4;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    applyCubeTransform();
+  });
+}
 
 function toggleExperience(card) {
     card.classList.toggle('expanded');

@@ -33,6 +33,11 @@
 - Made LinkedIn link clickable
 - Added z-index and pointer-events to fix clickability issues
 
+### 5. Added 3D Preview
+- Replaced the iframe-based Spline embed with a pure CSS 3D cube to mirror the 3D effect from the original design.
+- The cube features auto-rotation, drag-to-rotate interaction, and a UI toggle to pause/resume rotation.
+- Retained a fallback note and the CTA to open in Spline for accessibility when needed.
+
 ## Previous Work (Earlier)
 
 - Clean slate and profile photo
