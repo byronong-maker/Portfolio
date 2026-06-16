@@ -6,3 +6,7 @@ Wasambe/
 # Duplicate portfolio copies
 Portfolio-master-updated/
 Portfolio-master-updated.zip
+
+# Raw un-sanitized source screenshots (client names visible) - never publish
+kpi-automation.png.png
+kpi-automation 2.png.png
