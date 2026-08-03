@@ -89,7 +89,52 @@ ul {
     font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    text-shadow: none;
+}
+
+/* Wordmark: BYRON with a diagonal slit cut through the B (upper left) and the
+   N (bottom right). The slits are navbar-coloured bars laid over the glyphs, so
+   the letters read as sliced. Real text underneath keeps it selectable and
+   readable to screen readers. */
+.logo-word {
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+    font-size: 1.45rem;
+    letter-spacing: .22em;
+    line-height: 1;
+    padding: 2px 0;
+    color: #ffffff;
+}
+
+.logo-word::before,
+.logo-word::after {
+    content: '';
+    position: absolute;
+    height: 2.5px;
+    width: 17px;
+    background: #0f172a;
+    transform: rotate(-42deg);
+    transform-origin: center;
+    pointer-events: none;
+}
+
+/* slit through the B, upper left */
+.logo-word::before {
+    top: 7px;
+    left: -2px;
+}
+
+/* slit through the N, bottom right */
+.logo-word::after {
+    bottom: 7px;
+    right: -2px;
+}
+
+.logo:hover .logo-word::before,
+.logo:hover .logo-word::after {
+    background: var(--accent-color);
+    height: 2px;
 }
 
 .nav-links {
@@ -692,16 +737,55 @@ ul {
     animation: fadeInUp 1s ease 0.8s forwards;
 }
 
+/* Scroll reveal, with a failsafe.
+   These elements start hidden and are revealed by the IntersectionObserver in
+   script.js. That means a missing or broken script.js would leave the entire
+   page below the hero invisible, with no error to hint at why. The animation
+   below force-reveals anything still hidden after 3s, so the content survives
+   script.js failing to load. When JS works, .visible wins long before it
+   fires. See also the <noscript> block in index.html, which covers the
+   JS-disabled case instantly rather than after the delay. */
+@keyframes revealFailsafe {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .section {
     padding: 100px 0;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+    animation: revealFailsafe 0.4s ease 3s forwards;
 }
 
 .section.visible {
     opacity: 1;
     transform: translateY(0);
+    animation: none;
+}
+
+/* Same failsafe for every other element that starts hidden and waits on the
+   observer. Without this, a broken script.js empties the page. */
+.experience-card,
+.project-card,
+.skill-category,
+.skill-category .skill-tag,
+.timeline-item,
+.contact-content,
+.contact-content .contact-card {
+    animation: revealFailsafe 0.4s ease 3.2s forwards;
+}
+
+.experience-card.visible,
+.project-card.visible,
+.skill-category.visible,
+.skill-category.visible .skill-tag,
+.timeline-item.visible,
+.contact-content.visible,
+.contact-content.visible .contact-card {
+    animation: none;
 }
 
 .bg-light {

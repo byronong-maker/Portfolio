@@ -27,6 +27,33 @@
 
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Scroll-reveal is JS-driven, so without JS every section below the hero
+         would stay at opacity 0 and the page would look empty. This shows
+         everything immediately. style.css also carries a timed failsafe for the
+         other case: JS enabled but script.js failing to load. -->
+    <noscript>
+        <style>
+            .section,
+            .experience-card,
+            .project-card,
+            .skill-category,
+            .skill-category .skill-tag,
+            .timeline-item,
+            .contact-content,
+            .contact-content .contact-card,
+            .tagline,
+            .btn,
+            .hero-status,
+            .hero-rotator,
+            .hero-cv,
+            .hero-pipeline {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+        </style>
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +61,7 @@
 <body>
     <nav class="navbar" style="background-color: #0f172a !important; position: fixed; top: 0; left: 0; right: 0; z-index: 99999;">
         <div class="nav-container">
-            <a href="#home" class="logo">Portfolio</a>
+            <a href="#home" class="logo" aria-label="Byron Ong — back to top"><span class="logo-word">BYRON</span></a>
             <ul class="nav-links" style="display: flex; gap: 30px; list-style: none; margin: 0; padding: 0;">
                 <li><a href="#about" style="color: #ffffff; font-weight: 700; text-decoration: none;">About</a></li>
                 <li><a href="#experience" style="color: #ffffff; font-weight: 700; text-decoration: none;">Experience</a></li>
