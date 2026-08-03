@@ -69,6 +69,78 @@ function toggleExperience(card) {
     card.classList.toggle('expanded');
 }
 
+// About: type out a real automation run in the terminal card.
+// Fires when scrolled into view, runs once. The command is typed character by
+// character; output lines then appear line by line, the way a real run reads.
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('aboutTerminal');
+    const out = document.getElementById('terminalOut');
+    if (!card || !out) return;
+
+    const SCRIPT = [
+        { t: 'cmd', text: 'claude-code run kpi-report --brand demo-store' },
+        { t: 'out', cls: 't-muted', text: '→ connecting to Klaviyo MCP server' },
+        { t: 'out', cls: 't-ok',    text: '✓ authenticated' },
+        { t: 'out', cls: 't-muted', text: '→ pulling campaign + flow metrics (last 14 days)' },
+        { t: 'out', cls: 't-ok',    text: '✓ 24 campaigns · 11 flows' },
+        { t: 'out', cls: 't-muted', text: '→ analysing with Claude' },
+        { t: 'out', cls: 't-key',   text: '  open rate · click rate · revenue attribution summarised' },
+        { t: 'out', cls: 't-muted', text: '→ formatting report → Slack #kpi-weekly' },
+        { t: 'out', cls: 't-ok',    text: '✓ posted · next run scheduled Monday 09:00' },
+        { t: 'out', cls: 't-warn',  text: 'done in 12.4s — zero manual steps' },
+    ];
+
+    const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const line = s => s.t === 'cmd'
+        ? `<span class="t-prompt">$</span> <span class="t-cmd">${esc(s.text)}</span>\n`
+        : `<span class="${s.cls}">${esc(s.text)}</span>\n`;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+        out.innerHTML = SCRIPT.map(line).join('');
+        return;
+    }
+
+    let started = false;
+    const run = () => {
+        if (started) return;
+        started = true;
+
+        let i = 0;
+        const step = () => {
+            if (i >= SCRIPT.length) return;
+            const s = SCRIPT[i];
+
+            if (s.t === 'cmd') {
+                // type the command one character at a time
+                let n = 0;
+                const typeChar = () => {
+                    n++;
+                    out.innerHTML = `<span class="t-prompt">$</span> <span class="t-cmd">${esc(s.text.slice(0, n))}</span>\n`;
+                    if (n < s.text.length) {
+                        setTimeout(typeChar, 38);
+                    } else {
+                        i++;
+                        setTimeout(step, 520);
+                    }
+                };
+                typeChar();
+            } else {
+                out.innerHTML += line(s);
+                i++;
+                setTimeout(step, s.cls === 't-ok' ? 420 : 300);
+            }
+        };
+        setTimeout(step, 400);
+    };
+
+    new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { run(); obs.disconnect(); }
+        });
+    }, { threshold: 0.35 }).observe(card);
+});
+
 // Hero: type/erase the rotating specialty line
 document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('heroRotator');
