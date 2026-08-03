@@ -68,3 +68,48 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleExperience(card) {
     card.classList.toggle('expanded');
 }
+
+// Hero: type/erase the rotating specialty line
+document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('heroRotator');
+    if (!el) return;
+
+    const phrases = [
+        'agentic AI workflows',
+        'Claude-powered automations',
+        'high-converting Shopify pages',
+        'automated KPI pipelines',
+        'systems that run without me'
+    ];
+
+    // Respect reduced-motion: show the first phrase, skip the animation entirely.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = phrases[0];
+        return;
+    }
+
+    let phrase = 0;
+    let chars = 0;
+    let erasing = false;
+
+    const tick = () => {
+        const current = phrases[phrase];
+        chars += erasing ? -1 : 1;
+        el.textContent = current.slice(0, chars);
+
+        let delay = erasing ? 35 : 70;
+
+        if (!erasing && chars === current.length) {
+            erasing = true;
+            delay = 1900;
+        } else if (erasing && chars === 0) {
+            erasing = false;
+            phrase = (phrase + 1) % phrases.length;
+            delay = 350;
+        }
+
+        setTimeout(tick, delay);
+    };
+
+    setTimeout(tick, 1600);
+});
