@@ -16,36 +16,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
-            navbar.style.boxShadow = 'none';
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
-    });
-
-    const sections = document.querySelectorAll('section');
+    const progress = document.getElementById('scrollProgress');
+    const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links a');
 
-    window.addEventListener('scroll', () => {
+    // Single rAF-throttled scroll handler drives the navbar state, the progress
+    // bar and the active nav link. Previously two separate unthrottled listeners
+    // ran layout reads on every scroll event.
+    let ticking = false;
+    const onScroll = () => {
+        const y = window.scrollY;
+
+        navbar.classList.toggle('scrolled', y > 50);
+
+        if (progress) {
+            const doc = document.documentElement;
+            const max = doc.scrollHeight - doc.clientHeight;
+            progress.style.transform = `scaleX(${max > 0 ? Math.min(y / max, 1) : 0})`;
+        }
+
         let current = '';
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
+            if (y >= section.offsetTop - 200) current = section.id;
+        });
+        navItems.forEach(item => {
+            item.classList.toggle('active', item.getAttribute('href').slice(1) === current);
         });
 
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').slice(1) === current) {
-                item.classList.add('active');
-            }
-        });
-    });
+        ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(onScroll);
+        }
+    }, { passive: true });
+    onScroll();
 
     const observerOptions = {
         threshold: 0.15,
@@ -68,6 +75,45 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleExperience(card) {
     card.classList.toggle('expanded');
 }
+
+// Stats: count up when the bar scrolls into view.
+// The markup already holds the final value ("6+", "50+", "17"), so if this never
+// runs the numbers simply display as written — nothing to fail open.
+document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.querySelector('.stats-section');
+    if (!bar) return;
+
+    const nums = [...bar.querySelectorAll('.stat-number')].map(el => {
+        const m = el.textContent.trim().match(/^(\d+)(.*)$/);
+        return m ? { el, target: +m[1], suffix: m[2], final: el.textContent } : null;
+    }).filter(Boolean);
+
+    if (!nums.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const run = () => {
+        const DURATION = 1400;
+        const start = performance.now();
+        const tick = now => {
+            const p = Math.min((now - start) / DURATION, 1);
+            const eased = 1 - Math.pow(1 - p, 3);   // ease-out cubic
+            nums.forEach(n => {
+                n.el.textContent = p < 1
+                    ? Math.round(n.target * eased) + n.suffix
+                    : n.final;
+            });
+            if (p < 1) requestAnimationFrame(tick);
+        };
+        nums.forEach(n => { n.el.textContent = '0' + n.suffix; });
+        requestAnimationFrame(tick);
+    };
+
+    new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { run(); obs.disconnect(); }
+        });
+    }, { threshold: 0.4 }).observe(bar);
+});
 
 // About: type out a real automation run in the terminal card.
 // Fires when scrolled into view, runs once. The command is typed character by

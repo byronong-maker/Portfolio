@@ -163,6 +163,46 @@ ul {
     text-shadow: none !important;
 }
 
+/* Active section indicator. The scrollspy in script.js has always added this
+   class, but nothing styled it, so it did nothing visible. */
+.nav-links a.active {
+    color: var(--accent-light) !important;
+}
+
+.nav-links a.active::after {
+    width: 100% !important;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+/* Navbar reacts to scroll. Replaces a JS handler that set a WHITE background,
+   which only stayed invisible because the CSS rule above carries !important. */
+.navbar.scrolled {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .45) !important;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Reading-progress bar: doubles as a nod to the pipeline theme. */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 100000;
+    background: rgba(148, 163, 184, .1);
+    pointer-events: none;
+}
+
+.scroll-progress span {
+    display: block;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #60a5fa);
+    box-shadow: 0 0 10px rgba(59, 130, 246, .7);
+    will-change: transform;
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -765,6 +805,21 @@ ul {
     transform: translateY(0);
     animation: none;
 }
+
+/* Stagger cards within a row so a grid assembles left-to-right instead of every
+   card popping at once. Delay only applies to the reveal transition. */
+.project-card:nth-child(3n + 2),
+.skill-category:nth-child(3n + 2) { transition-delay: .09s; }
+
+.project-card:nth-child(3n + 3),
+.skill-category:nth-child(3n + 3) { transition-delay: .18s; }
+
+.experience-card:nth-child(2n) { transition-delay: .09s; }
+
+.reference-card:nth-child(2),
+.edu-card:nth-child(2)          { transition-delay: .09s; }
+
+.reference-card:nth-child(3)    { transition-delay: .18s; }
 
 /* Same failsafe for every other element that starts hidden and waits on the
    observer. Without this, a broken script.js empties the page. */
