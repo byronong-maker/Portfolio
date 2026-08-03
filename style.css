@@ -203,42 +203,14 @@ ul {
     will-change: transform;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links li {
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-.nav-links li:nth-child(1) { animation-delay: 0.1s; }
-.nav-links li:nth-child(2) { animation-delay: 0.2s; }
-.nav-links li:nth-child(3) { animation-delay: 0.3s; }
-.nav-links li:nth-child(4) { animation-delay: 0.4s; }
-.nav-links li:nth-child(5) { animation-delay: 0.5s; }
-
+/* Removed a duplicate nav block here (.nav-container, .logo, .nav-links,
+   .nav-links li + its nth-child animation delays). Every one of those was
+   already overridden by the !important rules above, so they were dead weight —
+   and the .nav-links li rule set opacity:0, meaning the nav would have
+   disappeared the moment someone removed an !important. The two rules below
+   survive because they ARE load-bearing: the underline is positioned against
+   .nav-links a, and .active / :hover both drive its width. */
 .nav-links a {
-    font-weight: 600;
-    color: #ffffff;
-    transition: var(--transition);
     position: relative;
 }
 
@@ -1664,6 +1636,49 @@ ul {
 }
 
 /* References */
+/* Core skills — a promoted tier so the six things Byron is actually hired for
+   are not weighted identically to Canva and Trello in the grid below. */
+.skills-core {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    /* Positive top margin: .section-subtitle above carries margin-top:-20px and
+       no bottom margin, so a negative value here overlapped the two. */
+    margin: 26px auto 54px;
+}
+
+.core-skill {
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: .95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(59, 130, 246, .22), rgba(139, 92, 246, .22));
+    border: 1px solid rgba(96, 165, 250, .45);
+    box-shadow: 0 0 18px rgba(59, 130, 246, .12);
+    transition: var(--transition);
+}
+
+.core-skill:hover {
+    transform: translateY(-3px);
+    border-color: rgba(147, 197, 253, .85);
+    box-shadow: 0 0 24px rgba(59, 130, 246, .3);
+}
+
+@media (max-width: 768px) {
+    .skills-core {
+        gap: 9px;
+        margin-bottom: 40px;
+    }
+
+    .core-skill {
+        padding: 9px 16px;
+        font-size: .85rem;
+    }
+}
+
 /* Education & Languages */
 .edu-grid {
     display: grid;

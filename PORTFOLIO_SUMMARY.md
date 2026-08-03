@@ -1,63 +1,52 @@
-# Portfolio Updates Summary
+# Byron Ong — Portfolio
 
-## Recent Changes (March 2026)
+Personal portfolio site. Live at <https://byronong-maker.github.io/Portfolio/>
 
-### 1. Artificial Intelligence Engineer Section
-- Added new "Artificial Intelligence Engineer" role at Pinnacle Minds (Oct 2025 - Mar 2026)
-- Created detailed project descriptions:
-  - Stock Bot App
-  - BlueCheck Chrome Extension
-  - Data Scraping and Categorization
+## Repo notes
 
-### 2. AI Engineering Projects Section
-- Added new project category in Projects section
-- Projects included:
-  - Stock Bot App - AI-powered stock market monitoring
-  - BlueCheck Chrome Extension - Online verification workflows
-  - Data Scraping and Categorization - Automated data extraction
+**GitHub Pages serves the `master` branch**, not `main`. A `main` branch also
+exists on the remote and is far behind. Always work on `master`.
 
-### 3. Professional References Section
-- Added new References section with three references:
-  - Kathreen Hervera - with photo and LinkedIn icon
-  - Diego, Jr. Arbiz - with photo and LinkedIn icon
-  - Joseph Kerolos - with photo and LinkedIn icon
-- Added clickable LinkedIn icons below each reference name
-- Enlarged reference images to 100px with round frames
-- Added to navbar navigation
-- Added to footer quick links
+```
+index.html    single page, all sections
+style.css     dark "systems" theme, driven by :root custom properties
+script.js     nav, scroll handling, reveal observer, count-up, terminal typing
+assets/       images, OG cover, favicon, CV PDF
+pages/        real landing pages linked from the Projects section
+```
 
-### 4. Footer Fixes
-- Made Quick Links clickable
-- Made email (mailto:) clickable
-- Made WhatsApp link clickable
-- Made LinkedIn link clickable
-- Added z-index and pointer-events to fix clickability issues
+## Sections
 
-### 5. Added 3D Preview
-- Replaced the iframe-based Spline embed with a pure CSS 3D cube to mirror the 3D effect from the original design.
-- The cube features auto-rotation, drag-to-rotate interaction, and a UI toggle to pause/resume rotation.
-- Retained a fallback note and the CTA to open in Spline for accessibility when needed.
+Hero → About → Stats → Experience → Skills → Projects → Education → References → Contact
 
-## Previous Work (Earlier)
+## Things worth knowing before editing
 
-- Clean slate and profile photo
-- Full portfolio structure with sections:
-  - Home (Hero)
-  - About Me
-  - Stats
-  - Video Resume
-  - Experience (multiple categories)
-  - Skills
-  - Projects (multiple categories)
-  - Contact
-  - Footer
+**Theming is centralised.** Colours come from the `:root` block at the top of
+`style.css`. The variable *names* are legacy (`--white`, `--bg-light`,
+`--text-dark`) but their *values* are dark — they were repointed rather than
+renamed so every existing rule inherited the theme. Change the palette there,
+not in individual rules.
 
-## Files Modified
-- index.html - Main portfolio structure
-- style.css - Styling and animations
-- script.js - Interactivity
+`--primary-color` is used for backgrounds and borders. Text accents use
+`--accent-color` / `--accent-light`. Keep that split — collapsing them makes
+text unreadable against the dark cards.
 
-## Image Files Added
-- 1759136512250.png - Kathreen Hervera photo
-- 1670143939184.jpeg - Diego, Jr. Arbiz photo
-- 1755609244845.jpeg - Joseph Kerolos photo
+**Scroll reveal has a failsafe.** Sections and cards start at `opacity: 0` and
+are revealed by the IntersectionObserver in `script.js`. Two fallbacks stop the
+page rendering blank if that never happens:
+
+- the `<noscript>` block in `index.html` (JavaScript disabled)
+- a timed CSS animation in `style.css` (JavaScript on, but `script.js` failed
+  to load)
+
+If you add a new element that starts hidden, add it to both.
+
+**The navbar carries `!important` rules.** They are load-bearing. `.nav-links a`
+also needs `position: relative` for the active-state underline to sit correctly.
+
+## Outstanding
+
+- Video Resume section removed — the embedded Drive file returns 404. Its CSS is
+  still in `style.css` so it can be restored once a working link exists.
+- Several project cards still use Unsplash stock images rather than real work.
+- References list names but no quotes.
