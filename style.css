@@ -309,6 +309,114 @@ ul {
     filter: drop-shadow(0 0 6px rgba(147, 197, 253, .9));
 }
 
+/* --- Hero: the automation stack in CSS 3D ---------------------------------
+   Four translucent layers stacked along Z, standing for the same stages as the
+   pipeline strip below: Trigger -> Claude Agent -> Automate -> Result. Packets
+   rise through the layers. Real perspective and real depth sorting, but it is
+   only CSS transforms, so there is no WebGL to fail and nothing to download. */
+/* Mouse offset lives on the wrapper; the spin lives on the scene. Keeping them
+   on separate elements means the keyframes stay a plain transform — animating a
+   custom property would need @property registration to work at all. */
+.hero-stack {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    perspective: 1500px;
+    pointer-events: none;
+    opacity: .75;
+    transform: translate3d(var(--mx, 0px), var(--my, 0px), 0);
+}
+
+.stack-scene {
+    position: relative;
+    width: 460px;
+    height: 460px;
+    transform-style: preserve-3d;
+    animation: stackSpin 48s linear infinite;
+}
+
+@keyframes stackSpin {
+    from { transform: rotateX(64deg) rotateZ(0deg); }
+    to   { transform: rotateX(64deg) rotateZ(360deg); }
+}
+
+.stack-plane {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(var(--tint), .5);
+    border-radius: 22px;
+    transform: translateZ(var(--z));
+    background:
+        linear-gradient(rgba(var(--tint), .10), rgba(var(--tint), .02)),
+        repeating-linear-gradient(0deg,   rgba(var(--tint), .16) 0 1px, transparent 1px 46px),
+        repeating-linear-gradient(90deg,  rgba(var(--tint), .16) 0 1px, transparent 1px 46px);
+    box-shadow: 0 0 46px rgba(var(--tint), .16);
+}
+
+/* corner marks, so each layer reads as a plate rather than a flat rectangle */
+.stack-plane::before,
+.stack-plane::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(var(--tint), .85);
+}
+
+.stack-plane::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 22px 0 0 0;
+}
+
+.stack-plane::after {
+    right: -1px;
+    bottom: -1px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 22px 0;
+}
+
+/* A job travelling up through the stack. */
+.stack-packet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-radius: 50%;
+    background: #dbeafe;
+    box-shadow: 0 0 16px rgba(191, 219, 254, .95);
+    animation: stackRise 7.2s ease-in-out var(--delay) infinite;
+}
+
+@keyframes stackRise {
+    0%       { transform: translateZ(0)     scale(.5); opacity: 0; }
+    12%      { opacity: 1; }
+    85%      { opacity: 1; }
+    100%     { transform: translateZ(240px) scale(1.15); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .stack-scene {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-stack {
+        opacity: .5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stack-scene { animation: none; }
+    .stack-packet { animation: none; opacity: .85; }
+}
+
 /* Availability chip */
 .hero-status {
     display: inline-flex;

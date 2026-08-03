@@ -119,6 +119,22 @@
                 <circle cx="1320" cy="430" r="22" fill="url(#netNode)"/><circle cx="1320" cy="430" r="4" fill="#93c5fd"/>
             </g>
         </svg>
+        <!-- The automation stack in real 3D: four layers a job passes through,
+             matching the Trigger / Claude Agent / Automate / Result strip below.
+             Pure CSS 3D transforms - real perspective, no WebGL, no library. -->
+        <div class="hero-stack" aria-hidden="true">
+            <div class="stack-scene">
+                <!-- Ordered so a packet rising through Z travels Trigger ->
+                     Claude Agent -> Automate -> Result, matching the strip. -->
+                <div class="stack-plane" style="--z: 0px;   --tint: 59, 130, 246;"></div>
+                <div class="stack-plane" style="--z: 74px;  --tint: 96, 165, 250;"></div>
+                <div class="stack-plane" style="--z: 148px; --tint: 139, 92, 246;"></div>
+                <div class="stack-plane" style="--z: 222px; --tint: 34, 197, 94;"></div>
+                <span class="stack-packet" style="--delay: 0s;"></span>
+                <span class="stack-packet" style="--delay: 2.4s;"></span>
+                <span class="stack-packet" style="--delay: 4.8s;"></span>
+            </div>
+        </div>
         <div class="hero-content">
             <span class="hero-status"><span class="hero-status-dot"></span>Available for new projects</span>
             <h1>Hi, I'm <span class="highlight">Byron Ong</span></h1>

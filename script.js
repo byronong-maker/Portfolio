@@ -127,8 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // animation, and an animation's final keyframe beats an inline transform,
     // so parallaxing it here would silently do nothing.
     const net = document.querySelector('.hero-net');
+    const stack = document.querySelector('.hero-stack');
     const hero = document.querySelector('.hero');
-    if (!net || !hero) return;
+    if (!hero || (!net && !stack)) return;
 
     let mx = 0, my = 0, ticking = false;
 
@@ -136,7 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = false;
         const y = window.scrollY;
         if (y > window.innerHeight * 1.2) return;   // stop work once out of view
-        net.style.transform = `translate3d(${mx}px, ${y * 0.28 + my}px, 0)`;
+        if (net) net.style.transform = `translate3d(${mx}px, ${y * 0.28 + my}px, 0)`;
+        // The 3D stack sits closer to the camera, so it moves further — that
+        // difference in rate is what sells the depth between the two layers.
+        if (stack) {
+            stack.style.setProperty('--mx', `${mx * 1.6}px`);
+            stack.style.setProperty('--my', `${y * 0.42 + my * 1.6}px`);
+        }
     };
 
     const queue = () => {
