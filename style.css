@@ -1178,6 +1178,11 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 30px;
+    /* Without this, grid items default to align-items:stretch, so expanding one
+       card stretched its neighbour to the same height. The neighbour looked
+       like it had opened too, but had nothing to show. Cards now size to their
+       own content and expand independently. */
+    align-items: start;
 }
 
 .experience-card {
@@ -1334,9 +1339,13 @@ ul {
     gap: 10px;
 }
 
+/* These were still on the pre-dark-theme palette: a near-white gradient
+   (#f0f9ff to #e0f2fe) left over from the light template, which read as bright
+   pills stuck on a dark card. Now matches .skill-tag. */
 .experience-tags span {
-    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    color: var(--accent-color);
+    background: linear-gradient(135deg, #1a2438, #202c45);
+    color: var(--accent-light);
+    border: 1px solid var(--border);
     padding: 6px 14px;
     border-radius: 16px;
     font-size: 0.8rem;
