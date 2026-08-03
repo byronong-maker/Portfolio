@@ -1,4 +1,4 @@
-# Byron Ong — Portfolio
+# Byron Ong, Portfolio
 
 Personal portfolio site. Live at <https://byronong-maker.github.io/Portfolio/>
 
@@ -23,12 +23,12 @@ Hero → About → Stats → Experience → Skills → Projects → Education �
 
 **Theming is centralised.** Colours come from the `:root` block at the top of
 `style.css`. The variable *names* are legacy (`--white`, `--bg-light`,
-`--text-dark`) but their *values* are dark — they were repointed rather than
+`--text-dark`) but their *values* are dark. They were repointed rather than
 renamed so every existing rule inherited the theme. Change the palette there,
 not in individual rules.
 
 `--primary-color` is used for backgrounds and borders. Text accents use
-`--accent-color` / `--accent-light`. Keep that split — collapsing them makes
+`--accent-color` / `--accent-light`. Keep that split, because collapsing them makes
 text unreadable against the dark cards.
 
 **Scroll reveal has a failsafe.** Sections and cards start at `opacity: 0` and
@@ -46,7 +46,7 @@ also needs `position: relative` for the active-state underline to sit correctly.
 
 ## Outstanding
 
-- Video Resume section removed — the embedded Drive file returns 404. Its CSS is
+- Video Resume section removed. The embedded Drive file returns 404. Its CSS is
   still in `style.css` so it can be restored once a working link exists.
 - Several project cards still use Unsplash stock images rather than real work.
 - References list names but no quotes.

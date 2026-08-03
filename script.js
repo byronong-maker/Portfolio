@@ -77,7 +77,7 @@ function toggleExperience(card) {
 }
 
 // 3D cursor tilt on project cards + hero parallax.
-// Pure CSS transforms driven by custom properties — no library, and every
+// Pure CSS transforms driven by custom properties, with no library, and every
 // effect here is additive: if this block never runs, the page is simply flat.
 document.addEventListener('DOMContentLoaded', () => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- cursor-tracked tilt (skip on touch: there is no hover to track) ---
     if (fine) {
-        const MAX = 7; // degrees — past ~8 it stops reading as depth and starts
+        const MAX = 7; // degrees. Past ~8 it stops reading as depth and starts
                        // looking like the card is falling over
         document.querySelectorAll('.project-card').forEach(card => {
             let raf = null;
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const y = window.scrollY;
         if (y > window.innerHeight * 1.2) return;   // stop work once out of view
         if (net) net.style.transform = `translate3d(${mx}px, ${y * 0.28 + my}px, 0)`;
-        // The 3D stack sits closer to the camera, so it moves further — that
+        // The 3D stack sits closer to the camera, so it moves further, and that
         // difference in rate is what sells the depth between the two layers.
         if (stack) {
             stack.style.setProperty('--mx', `${mx * 1.6}px`);
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Stats: count up when the bar scrolls into view.
 // The markup already holds the final value ("6+", "50+", "17"), so if this never
-// runs the numbers simply display as written — nothing to fail open.
+// runs the numbers simply display as written, so there is nothing to fail open.
 document.addEventListener('DOMContentLoaded', () => {
     const bar = document.querySelector('.stats-section');
     if (!bar) return;
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { t: 'out', cls: 't-key',   text: '  open rate · click rate · revenue attribution summarised' },
         { t: 'out', cls: 't-muted', text: '→ formatting report → Slack #kpi-weekly' },
         { t: 'out', cls: 't-ok',    text: '✓ posted · next run scheduled Monday 09:00' },
-        { t: 'out', cls: 't-warn',  text: 'done in 12.4s — zero manual steps' },
+        { t: 'out', cls: 't-warn',  text: 'done in 12.4s, zero manual steps' },
     ];
 
     const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

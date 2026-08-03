@@ -1,4 +1,4 @@
-/* Dark "systems" theme — the whole page now shares the hero's palette so the
+/* Dark "systems" theme. The whole page now shares the hero's palette so the
    site reads as one engineered surface rather than a dark hero bolted onto a
    light template. Legacy variable NAMES are kept (--white, --bg-light,
    --text-dark) so every existing rule inherits the new theme without a rewrite;
@@ -205,7 +205,7 @@ ul {
 
 /* Removed a duplicate nav block here (.nav-container, .logo, .nav-links,
    .nav-links li + its nth-child animation delays). Every one of those was
-   already overridden by the !important rules above, so they were dead weight —
+   already overridden by the !important rules above, so they were dead weight,
    and the .nav-links li rule set opacity:0, meaning the nav would have
    disappeared the moment someone removed an !important. The two rules below
    survive because they ARE load-bearing: the underline is positioned against
@@ -315,7 +315,7 @@ ul {
    rise through the layers. Real perspective and real depth sorting, but it is
    only CSS transforms, so there is no WebGL to fail and nothing to download. */
 /* Mouse offset lives on the wrapper; the spin lives on the scene. Keeping them
-   on separate elements means the keyframes stay a plain transform — animating a
+   on separate elements means the keyframes stay a plain transform, because animating a
    custom property would need @property registration to work at all. */
 .hero-stack {
     position: absolute;
@@ -1036,7 +1036,7 @@ ul {
     line-height: 1.8;
 }
 
-/* Terminal card — types out a real pipeline run rather than typing the prose
+/* Terminal card. Types out a real pipeline run rather than typing the prose
    above it, which people actually came to read. */
 .terminal {
     max-width: 760px;
@@ -1793,7 +1793,7 @@ ul {
 }
 
 /* References */
-/* Core skills — a promoted tier so the six things Byron is actually hired for
+/* Core skills: a promoted tier so the six things Byron is actually hired for
    are not weighted identically to Canva and Trello in the grid below. */
 .skills-core {
     display: flex;
@@ -1913,7 +1913,7 @@ ul {
     margin-right: 5px;
 }
 
-/* Testimonials — real LinkedIn recommendations */
+/* Testimonials: real LinkedIn recommendations */
 .testimonials {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
