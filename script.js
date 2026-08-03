@@ -76,6 +76,87 @@ function toggleExperience(card) {
     card.classList.toggle('expanded');
 }
 
+// 3D cursor tilt on project cards + hero parallax.
+// Pure CSS transforms driven by custom properties — no library, and every
+// effect here is additive: if this block never runs, the page is simply flat.
+document.addEventListener('DOMContentLoaded', () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    if (reduced) return;
+
+    // --- cursor-tracked tilt (skip on touch: there is no hover to track) ---
+    if (fine) {
+        const MAX = 7; // degrees — past ~8 it stops reading as depth and starts
+                       // looking like the card is falling over
+        document.querySelectorAll('.project-card').forEach(card => {
+            let raf = null;
+
+            const move = e => {
+                if (raf) return;
+                raf = requestAnimationFrame(() => {
+                    raf = null;
+                    const r = card.getBoundingClientRect();
+                    const px = (e.clientX - r.left) / r.width;
+                    const py = (e.clientY - r.top) / r.height;
+                    card.style.setProperty('--ry', `${(px - 0.5) * 2 * MAX}deg`);
+                    card.style.setProperty('--rx', `${(0.5 - py) * 2 * MAX}deg`);
+                    card.style.setProperty('--gx', `${px * 100}%`);
+                    card.style.setProperty('--gy', `${py * 100}%`);
+                });
+            };
+
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('is-tilting');
+                card.style.setProperty('--glare', '1');
+            });
+
+            card.addEventListener('mousemove', move);
+
+            card.addEventListener('mouseleave', () => {
+                if (raf) { cancelAnimationFrame(raf); raf = null; }
+                card.classList.remove('is-tilting');   // restores the eased transition
+                card.style.setProperty('--rx', '0deg');
+                card.style.setProperty('--ry', '0deg');
+                card.style.setProperty('--glare', '0');
+            });
+        });
+    }
+
+    // --- hero parallax: the node network drifts slower than the page ---
+    // Only .hero-net is moved. .hero-content runs a fill-forwards entrance
+    // animation, and an animation's final keyframe beats an inline transform,
+    // so parallaxing it here would silently do nothing.
+    const net = document.querySelector('.hero-net');
+    const hero = document.querySelector('.hero');
+    if (!net || !hero) return;
+
+    let mx = 0, my = 0, ticking = false;
+
+    const apply = () => {
+        ticking = false;
+        const y = window.scrollY;
+        if (y > window.innerHeight * 1.2) return;   // stop work once out of view
+        net.style.transform = `translate3d(${mx}px, ${y * 0.28 + my}px, 0)`;
+    };
+
+    const queue = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+    };
+
+    window.addEventListener('scroll', queue, { passive: true });
+
+    if (fine) {
+        hero.addEventListener('mousemove', e => {
+            mx = (e.clientX / window.innerWidth - 0.5) * 26;
+            my = (e.clientY / window.innerHeight - 0.5) * 16;
+            queue();
+        });
+        hero.addEventListener('mouseleave', () => { mx = 0; my = 0; queue(); });
+    }
+
+    apply();
+});
+
 // Stats: count up when the bar scrolls into view.
 // The markup already holds the final value ("6+", "50+", "17"), so if this never
 // runs the numbers simply display as written — nothing to fail open.

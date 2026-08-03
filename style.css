@@ -1080,13 +1080,16 @@ ul {
     transition: var(--transition);
     border: 1px solid transparent;
     opacity: 0;
-    transform: translateY(20px);
+    /* Cards hinge up into place rather than sliding flat, so the reveal reads
+       as depth instead of a 2D nudge. */
+    transform: perspective(1100px) translateY(22px) rotateX(7deg);
+    transform-origin: 50% 100%;
     cursor: pointer;
 }
 
 .experience-card.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: perspective(1100px) translateY(0) rotateX(0deg);
 }
 
 .experience-card:nth-child(1) { transition-delay: 0.1s; }
@@ -1508,19 +1511,55 @@ ul {
     gap: 25px;
 }
 
+/* Reveal and cursor tilt share one transform, composed from custom properties,
+   so the scroll-in animation and the 3D hover don't overwrite each other.
+   --ty is driven by .visible; --rx/--ry/--lift are driven by script.js. */
 .project-card {
+    --ty: 30px;
+    --rx: 0deg;
+    --ry: 0deg;
+    --lift: 0px;
+    --glare: 0;
+    position: relative;
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     opacity: 0;
-    transform: translateY(30px);
+    transform-style: preserve-3d;
+    transform:
+        perspective(900px)
+        translateY(var(--ty))
+        translateZ(var(--lift))
+        rotateX(var(--rx))
+        rotateY(var(--ry));
 }
 
 .project-card.visible {
     opacity: 1;
-    transform: translateY(0);
+    --ty: 0px;
+}
+
+/* Specular glare that tracks the cursor. pointer-events:none keeps the card's
+   own click handler working. */
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(340px circle at var(--gx, 50%) var(--gy, 50%),
+                rgba(147, 197, 253, .16), transparent 62%);
+    opacity: var(--glare);
+    transition: opacity .3s ease;
+}
+
+/* While tilting, drop the transform transition so the card tracks the cursor
+   instantly instead of lagging a third of a second behind it. */
+.project-card.is-tilting {
+    transition: box-shadow .3s ease, border-color .3s ease;
 }
 
 .project-card:nth-child(1) { transition-delay: 0.1s; }
@@ -1531,7 +1570,7 @@ ul {
 .project-card:nth-child(6) { transition-delay: 0.6s; }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    --lift: 22px;
     box-shadow: var(--shadow-lg);
 }
 
@@ -1609,7 +1648,14 @@ ul {
     margin-bottom: 0;
 }
 
+/* Category headers pin under the navbar while their own row of cards scrolls
+   past, so you always know which group you're looking at in a long list.
+   Native position:sticky - scrolling stays entirely under the user's control,
+   and it degrades to a normal heading where unsupported. */
 .project-category .category-title {
+    position: sticky;
+    top: 68px;
+    z-index: 6;
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--text-dark);
@@ -1617,8 +1663,11 @@ ul {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 12px;
+    padding: 12px 14px;
     border-bottom: 2px solid var(--border);
+    border-radius: 10px 10px 0 0;
+    background: rgba(15, 23, 42, .82);
+    backdrop-filter: blur(10px);
 }
 
 .project-category .category-icon {
