@@ -319,3 +319,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(tick, 1600);
 });
+
+// Signal reveal: every section comes online the way the hero network reads.
+//
+//     wire draws  ->  node lights  ->  title sweeps  ->  content
+//
+// This block OPTS IN to the animation rather than out of it: nothing is hidden
+// by the stylesheet until the classes below are added, and the wire element does
+// not exist until it is injected. So if this never runs, or runs on a browser
+// that chokes on it, the page is simply static and complete. That is the
+// opposite of the older reveal above, which hides in CSS first and therefore
+// needs both a <noscript> block and a timed failsafe to stay safe.
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.querySelectorAll('.section').forEach(section => {
+        const container = section.querySelector(':scope > .container');
+        if (!container) return;
+
+        const title = container.querySelector(':scope > .section-title');
+
+        if (title) {
+            // Split into characters. Spaces become their own span with
+            // white-space: pre so word gaps survive inline-block.
+            const text = title.textContent;
+            title.textContent = '';
+
+            const wire = document.createElement('i');
+            wire.className = 'node-wire';
+            wire.setAttribute('aria-hidden', 'true');
+            title.appendChild(wire);
+
+            // One span per character would leave a screen reader announcing
+            // "A. b. o. u. t." so the accessible name is restored on the title
+            // and the split text is hidden from assistive tech.
+            title.setAttribute('aria-label', text);
+
+            const frag = document.createDocumentFragment();
+            [...text].forEach((char, i) => {
+                const span = document.createElement('span');
+                span.className = 'ch';
+                span.setAttribute('aria-hidden', 'true');
+                span.style.setProperty('--i', i);
+                span.textContent = char;
+                frag.appendChild(span);
+            });
+            title.appendChild(frag);
+            title.classList.add('fx');
+        }
+
+        // Everything else in the section comes online in document order.
+        const children = [...container.children].filter(el => el !== title);
+        children.forEach((el, i) => {
+            el.style.setProperty('--i', i);
+            el.classList.add('fx-child');
+
+            // Card grids run their own nth-child stagger already, so the
+            // wrapper gets out of the way rather than delaying them twice.
+            if (el.querySelector('.project-card, .experience-card, .skill-category, .reference-card, .edu-card')) {
+                el.classList.add('fx-grid');
+            }
+        });
+
+        if (title || children.length) section.classList.add('has-fx');
+    });
+});

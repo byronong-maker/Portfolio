@@ -2637,3 +2637,163 @@ footer::before {
         display: none;
     }
 }
+
+/* ============================================================
+   SIGNAL REVEAL
+   ------------------------------------------------------------
+   One motion language for the whole page, borrowed from the hero
+   network: a signal reaches a node, the node lights, and the
+   section comes online. Four beats, same order, every section.
+
+       wire draws  ->  node lights  ->  title sweeps  ->  content
+
+   Everything here is opt-in from script.js: the JS adds .fx and
+   injects the wire, so with JS off nothing is hidden and no
+   failsafe is needed. That is deliberate. The older reveal above
+   hides first and reveals later, which is why it needs both a
+   <noscript> block and a 3s failsafe animation to stay safe.
+   ============================================================ */
+
+/* The section itself keeps its fade but drops its 30px lift once
+   the children are carrying the movement, otherwise the whole
+   block and everything inside it travel at once and the sequence
+   reads as one soft blur instead of four beats. */
+.section.has-fx {
+    transform: none;
+}
+
+/* --- beat 1: the wire ------------------------------------- */
+/* Injected by script.js as the title's first child. .section-title
+   is already position:relative, so this needs no layout changes
+   anywhere else. */
+.node-wire {
+    position: absolute;
+    top: -58px;
+    left: 50%;
+    width: 2px;
+    height: 44px;
+    margin-left: -1px;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0), #3b82f6);
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform .42s cubic-bezier(.2, .8, .2, 1);
+    pointer-events: none;
+}
+
+.section.visible .node-wire {
+    transform: scaleY(1);
+}
+
+/* the packet that runs down the wire, echoing .net-pulses in the hero */
+.node-wire::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    border-radius: 50%;
+    background: #bfdbfe;
+    box-shadow: 0 0 10px 2px rgba(147, 197, 253, .8);
+    opacity: 0;
+}
+
+.section.visible .node-wire::after {
+    animation: signalDrop .52s cubic-bezier(.4, 0, .6, 1) .06s 1;
+}
+
+@keyframes signalDrop {
+    0%   { opacity: 0; transform: translateY(0); }
+    18%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(44px); }
+}
+
+/* --- beat 2: the node lights ------------------------------ */
+/* .section-title::before is the existing 40px accent bar. It becomes
+   the node the signal arrives at. */
+.section-title.fx::before {
+    transform: translateX(-50%) scaleX(0);
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1) .38s,
+                box-shadow .5s ease .38s;
+}
+
+.section.visible .section-title.fx::before {
+    transform: translateX(-50%) scaleX(1);
+    box-shadow: 0 0 16px 3px rgba(59, 130, 246, .55);
+}
+
+/* the lower bar closes the sequence, so it arrives last */
+.section-title.fx::after {
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform .4s cubic-bezier(.2, .8, .2, 1) .74s;
+}
+
+.section.visible .section-title.fx::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* --- beat 3: the title sweeps ----------------------------- */
+/* Characters are wrapped by script.js. Left to right, tight and
+   quick: a signal passing through, not letters bouncing in. */
+.section-title.fx .ch {
+    display: inline-block;
+    white-space: pre;
+    opacity: 0;
+    transform: translateY(.42em);
+    transition: opacity .34s cubic-bezier(.2, .8, .2, 1),
+                transform .34s cubic-bezier(.2, .8, .2, 1);
+    transition-delay: calc(.48s + var(--i) * 22ms);
+}
+
+.section.visible .section-title.fx .ch {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- beat 4: the content comes online --------------------- */
+.fx-child {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .5s cubic-bezier(.2, .8, .2, 1),
+                transform .5s cubic-bezier(.2, .8, .2, 1);
+    transition-delay: calc(.72s + var(--i) * 90ms);
+}
+
+.section.visible .fx-child {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Grids already stagger their own cards through nth-child rules
+   further up, so the wrapper resolves fast and lets the cards
+   carry the rest of the sequence rather than delaying them twice. */
+.fx-child.fx-grid {
+    transition-delay: calc(.72s + var(--i) * 40ms);
+}
+
+/* --- reduced motion --------------------------------------- */
+/* script.js opts out before touching the DOM, so this only covers
+   a preference that changes after load. */
+@media (prefers-reduced-motion: reduce) {
+    .node-wire,
+    .section-title.fx::before,
+    .section-title.fx::after,
+    .section-title.fx .ch,
+    .fx-child {
+        opacity: 1 !important;
+        transform: translateX(-50%) !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .node-wire,
+    .section-title.fx .ch,
+    .fx-child {
+        transform: none !important;
+    }
+
+    .node-wire { display: none; }
+}
