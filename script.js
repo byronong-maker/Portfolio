@@ -54,22 +54,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
     onScroll();
 
-    const observerOptions = {
+    // Two observers, deliberately. One threshold cannot serve both cases.
+    //
+    // A 0.15 threshold means "15% of this element is on screen". That reads
+    // well for a card, but a .section can be taller than the viewport: the
+    // projects section is about 5,674px against a 900px window, so the
+    // largest fraction that can EVER be visible at once is roughly 15%,
+    // sitting right on the boundary. When it falls short the section never
+    // receives .visible, and everything inside it that waits on .visible
+    // stays hidden permanently. That is exactly how the whole projects
+    // section went blank once the character and child reveals were added,
+    // since those have no timed failsafe behind them the way .section does.
+    //
+    // Sections therefore fire on any intersection at all, which cannot fail
+    // at any height. The smaller items keep the nicer 15% trigger.
+    const reveal = entries => entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+
+    const sectionObserver = new IntersectionObserver(reveal, {
+        threshold: 0,
+        rootMargin: '0px 0px -80px 0px'
+    });
+    document.querySelectorAll('.section').forEach(el => sectionObserver.observe(el));
+
+    const itemObserver = new IntersectionObserver(reveal, {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.section, .experience-card, .project-card, .skill-category, .contact-link, .contact-content').forEach(el => {
-        observer.observe(el);
     });
+    document.querySelectorAll('.experience-card, .project-card, .skill-category, .contact-link, .contact-content')
+        .forEach(el => itemObserver.observe(el));
 });
 
 function toggleExperience(card) {
