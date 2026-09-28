@@ -144,7 +144,12 @@
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
-            <a href="assets/Byron-Ong-CV.pdf" class="hero-cv" download>
+            <!-- CV lives in Drive so it can be swapped without redeploying. The uc
+                 endpoint serves Content-Disposition: attachment, so this downloads
+                 rather than opening a preview. The download attribute is dropped
+                 because browsers ignore it cross-origin. -->
+            <a href="https://drive.google.com/uc?export=download&amp;id=1yx424zV7ZyFKtMTO5Z4Uol9ykA5_AwYy"
+               class="hero-cv" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <polyline points="7 10 12 15 17 10"/>
