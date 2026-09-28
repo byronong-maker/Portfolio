@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henry's First Lap</title>
+<meta name="description" content="You are invited to Henry Thompson Ong's Christening and 1st Birthday. September 19, 2026, Surigao City.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Henry's First Lap: Christening & 1st Birthday">
+<meta property="og:description" content="You are invited! September 19, 2026, Surigao City. Tap to open your invitation.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://byronong-maker.github.io/henry-invitation/img/henry-hero.jpg">
+<meta name="theme-color" content="#e31b23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#e31b23;
+    --red-dark:#b3121a;
+    --yellow:#ffc20e;
+    --blue:#1f5fbf;
+    --blue-dark:#153f80;
+    --black:#161616;
+    --ink:#1e1e1e;
+    --cream:#fff8ec;
+    --cream-2:#fff1d6;
+    --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .race{font-family:'Racing Sans One','Impact','Arial Black',sans-serif;font-weight:400;letter-spacing:.5px}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px;position:relative}
+
+  /* checkered strip */
+  .checks{
+    height:22px;
+    background:
+      linear-gradient(45deg,var(--black) 25%,transparent 25%,transparent 75%,var(--black) 75%),
+      linear-gradient(45deg,var(--black) 25%,#fff 25%,#fff 75%,var(--black) 75%);
+    background-size:22px 22px;
+    background-position:0 0,11px 11px;
+  }
+
+  /* ================= intro lights ================= */
+  #intro{
+    position:fixed;inset:0;z-index:100;
+    background:var(--black);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+    transition:opacity .5s ease, visibility .5s;
+  }
+  #intro.out{opacity:0;visibility:hidden}
+  #intro .gantry{
+    display:flex;gap:10px;background:#2a2a2a;padding:14px;border-radius:14px;
+    box-shadow:0 0 0 4px #111, 0 20px 40px rgba(0,0,0,.6);
+  }
+  #intro .col{display:flex;flex-direction:column;gap:8px;background:#111;padding:8px;border-radius:10px}
+  #intro .lamp{width:34px;height:34px;border-radius:50%;background:#3a0a0c;box-shadow:inset 0 3px 6px rgba(0,0,0,.6)}
+  #intro .col.on .lamp{background:radial-gradient(circle at 40% 35%,#ff7a7a,#e31b23 60%,#8a0b10);box-shadow:0 0 18px #ff2a33,0 0 40px rgba(255,42,51,.6)}
+  #intro .col.go .lamp{background:radial-gradient(circle at 40% 35%,#9dffb0,#22c55e 60%,#0d7a34);box-shadow:0 0 18px #22c55e,0 0 40px rgba(34,197,94,.6)}
+  #intro .msg{color:#fff;font-size:clamp(22px,6vw,32px);letter-spacing:2px;text-transform:uppercase;opacity:.9;min-height:1.4em;text-align:center;padding:0 20px}
+  #intro .skip{
+    position:absolute;bottom:28px;color:#aaa;background:none;border:1px solid #444;
+    padding:8px 16px;border-radius:999px;font-family:inherit;font-size:13px;letter-spacing:1px;cursor:pointer;
+  }
+  @media (max-width:380px){#intro .lamp{width:26px;height:26px}}
+
+  /* ================= hero ================= */
+  #hero{
+    position:relative;
+    background:var(--red);
+    color:#fff;
+    padding:34px 0 0;
+    overflow:hidden;
+  }
+  #hero::before{ /* sunburst */
+    content:"";position:absolute;inset:-40%;
+    background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.07) 0 9deg,transparent 9deg 18deg);
+    animation:spin 80s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  #hero .wrap{text-align:center}
+  .tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);color:var(--black);
+    font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    padding:7px 14px;border-radius:999px;
+    box-shadow:0 6px 14px rgba(0,0,0,.2);
+  }
+  .tag .flag{width:16px;height:12px;background:
+      linear-gradient(45deg,var(--black) 25%,transparent 25%,transparent 75%,var(--black) 75%),
+      linear-gradient(45deg,var(--black) 25%,#fff 25%,#fff 75%,var(--black) 75%);
+    background-size:6px 6px;background-position:0 0,3px 3px;border-radius:2px}
+  .kicker{
+    margin-top:22px;
+    font-size:clamp(17px,4.6vw,22px);
+    font-weight:700;
+    opacity:.95;
+  }
+  .hero-name{
+    margin-top:6px;
+    font-size:clamp(66px,20vw,118px);
+    line-height:.9;
+    color:#fff;
+    text-shadow:0 6px 0 var(--red-dark), 0 14px 30px rgba(0,0,0,.25);
+  }
+  .hero-sub{
+    margin-top:8px;
+    font-size:clamp(20px,5.6vw,28px);
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--yellow);
+  }
+  .roundel{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:78px;height:78px;border-radius:50%;
+    background:#fff;color:var(--black);
+    font-size:54px;line-height:1;
+    border:6px solid var(--black);
+    box-shadow:0 10px 24px rgba(0,0,0,.3);
+    margin-top:18px;
+    position:relative;
+  }
+  .roundel::after{content:"";position:absolute;inset:-12px;border:3px dashed rgba(255,255,255,.7);border-radius:50%}
+  .events{
+    margin-top:26px;
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  }
+  .events .ev{
+    font-size:clamp(24px,7vw,36px);
+    line-height:1;
+    color:#fff;
+  }
+  .events .amp{
+    width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--black);
+    display:inline-flex;align-items:center;justify-content:center;font-size:22px;
+  }
+
+  /* tyre photo frame */
+  .tyre{
+    width:min(66vw,250px);height:min(66vw,250px);
+    margin:30px auto 0;
+    border-radius:50%;
+    background:var(--black);
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+  }
+  .tyre::before{ /* tread */
+    content:"";position:absolute;inset:0;border-radius:50%;
+    background:repeating-conic-gradient(from 0deg,#2b2b2b 0 6deg,#161616 6deg 12deg);
+    -webkit-mask:radial-gradient(circle,transparent 62%,#000 63%,#000 100%);
+            mask:radial-gradient(circle,transparent 62%,#000 63%,#000 100%);
+  }
+  .tyre .photo{
+    width:72%;height:72%;border-radius:50%;
+    background:linear-gradient(135deg,#fff3d1,#ffd98a);
+    border:6px solid var(--yellow);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    color:var(--black);font-weight:700;font-size:13px;padding:0;overflow:hidden;
+    position:relative;z-index:1;
+  }
+  .tyre .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* road with car */
+  .road{
+    position:relative;
+    margin-top:34px;
+    height:110px;
+    background:#2a2a2a;
+    overflow:hidden;
+  }
+  .road::before{ /* dashed centre line */
+    content:"";position:absolute;left:0;right:0;top:50%;height:6px;
+    background:repeating-linear-gradient(90deg,var(--yellow) 0 40px,transparent 40px 70px);
+    transform:translateY(-50%);
+    animation:dash 1.2s linear infinite;
+  }
+  @keyframes dash{to{background-position:-70px 0}}
+  .car{
+    position:absolute;left:50%;top:50%;
+    width:min(60vw,240px);height:auto;
+    transform:translate(-50%,-52%);
+    animation:drive-in 1.6s cubic-bezier(.2,.8,.2,1) both;
+    animation-delay:.2s;
+    filter:drop-shadow(0 10px 10px rgba(0,0,0,.5));
+  }
+  @keyframes drive-in{from{transform:translate(-190%,-52%)}to{transform:translate(-50%,-52%)}}
+  .car .wheel{transform-origin:center;transform-box:fill-box;animation:roll .5s linear infinite}
+  @keyframes roll{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){
+    .car,.road::before,.car .wheel,#hero::before{animation:none}
+  }
+
+  /* ================= sections ================= */
+  section.block{padding:54px 0}
+  .h2{
+    font-size:clamp(36px,10vw,54px);
+    line-height:1;
+    text-align:center;
+    color:var(--black);
+  }
+  .h2 span{color:var(--red)}
+  .lead{margin-top:10px;text-align:center;font-size:clamp(15px,4.2vw,18px);font-weight:600;color:#444}
+
+  /* pit pass */
+  #pass{background:var(--cream-2)}
+  .ticket{
+    margin-top:26px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+    overflow:hidden;
+    position:relative;
+    border:3px solid var(--black);
+  }
+  .ticket .head{
+    background:var(--black);color:#fff;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:12px 18px;
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:900;
+  }
+  .ticket .head .chk{width:40px;height:14px;background:
+      linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%),
+      linear-gradient(45deg,#fff 25%,var(--black) 25%,var(--black) 75%,#fff 75%);
+    background-size:7px 7px;background-position:0 0,3.5px 3.5px}
+  .ticket .body{padding:24px 22px 22px;position:relative}
+  .ticket .body::before,.ticket .body::after{ /* punch holes */
+    content:"";position:absolute;top:50%;width:26px;height:26px;border-radius:50%;
+    background:var(--cream-2);border:3px solid var(--black);transform:translateY(-50%);
+  }
+  .ticket .body::before{left:-16px}
+  .ticket .body::after{right:-16px}
+  .ticket .dear{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#777;font-weight:900}
+  .ticket .guest{
+    font-size:clamp(30px,8.6vw,44px);line-height:1.05;color:var(--red);margin-top:4px;
+    word-wrap:break-word;
+  }
+  .ticket .copy{margin-top:12px;font-size:clamp(15px,4.2vw,17px);line-height:1.5;color:#333}
+  .ticket .copy b{color:var(--black)}
+  .ticket .meta{
+    margin-top:18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;
+    border-top:2px dashed #ddd;padding-top:14px;
+  }
+  .ticket .meta div{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;font-weight:900}
+  .ticket .meta strong{display:block;font-size:15px;color:var(--black);margin-top:2px;letter-spacing:0;text-transform:none}
+  .ticket .bar{
+    height:34px;margin:18px -22px -22px;
+    background:repeating-linear-gradient(90deg,var(--black) 0 2px,transparent 2px 5px,var(--black) 5px 6px,transparent 6px 10px,var(--black) 10px 13px,transparent 13px 16px);
+    opacity:.85;
+  }
+
+  /* meet the driver */
+  #driver{background:var(--cream)}
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .shot{position:relative;border-radius:14px;overflow:hidden;border:3px solid var(--black);background:#fff;box-shadow:6px 6px 0 var(--yellow)}
+  .shot img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+  .shot figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:8px 8px 9px;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75));
+    color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;line-height:1.25;
+  }
+  @media (max-width:420px){
+    .strip{grid-template-columns:1fr 1fr}
+    .strip .shot:first-child{grid-column:1/-1}
+    .strip .shot:first-child img{aspect-ratio:4/3;object-position:50% 30%}
+  }
+
+  /* countdown */
+  #count{background:var(--blue);color:#fff}
+  #count .h2{color:#fff}
+  #count .h2 span{color:var(--yellow)}
+  .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+  .cd div{
+    background:rgba(0,0,0,.25);border-radius:14px;padding:14px 6px;text-align:center;
+    border:2px solid rgba(255,255,255,.15);
+  }
+  .cd b{display:block;font-size:clamp(30px,9vw,44px);line-height:1;color:var(--yellow)}
+  .cd small{display:block;margin-top:6px;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.85;font-weight:700}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);color:var(--black);text-decoration:none;
+    font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+    padding:13px 20px;border-radius:999px;
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:16px;height:16px}
+
+  /* details grid */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 20px;margin-top:30px}
+  .item{display:flex;gap:14px;align-items:flex-start}
+  .item.full{grid-column:1/-1}
+  .ico{
+    flex:0 0 auto;width:54px;height:54px;border-radius:14px;
+    background:var(--black);color:var(--yellow);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+  }
+  .ico svg{width:30px;height:30px}
+  .item h3{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:900}
+  .item p{font-size:clamp(15px,4.2vw,18px);line-height:1.35;font-weight:700;color:var(--black);margin-top:3px}
+  .item p small{display:block;font-weight:600;color:#666;font-size:.82em;margin-top:2px}
+  .item p a{display:inline-block;margin-top:6px;color:var(--blue);font-weight:800;font-size:.85em;text-decoration:none;border-bottom:2px solid rgba(31,95,191,.3)}
+  .tba{
+    display:inline-block;background:var(--yellow);color:var(--black);
+    font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;vertical-align:middle;
+  }
+  @media (max-width:420px){.grid{grid-template-columns:1fr}}
+
+  /* laps timeline */
+  #route{background:var(--black);color:#fff}
+  #route .h2{color:#fff}
+  #route .h2 span{color:var(--yellow)}
+  #route .lead{color:#bbb}
+  .laps{margin-top:30px;position:relative;padding-left:46px}
+  .laps::before{
+    content:"";position:absolute;left:14px;top:8px;bottom:8px;width:6px;
+    background:repeating-linear-gradient(180deg,#fff 0 14px,#444 14px 28px);border-radius:3px;
+  }
+  .lap{position:relative;padding:0 0 30px}
+  .lap:last-child{padding-bottom:0}
+  .lap::before{
+    content:attr(data-n);
+    position:absolute;left:-46px;top:-2px;
+    width:34px;height:34px;border-radius:50%;
+    background:var(--red);color:#fff;border:3px solid #fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Racing Sans One',sans-serif;font-size:18px;
+  }
+  .lap .l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);font-weight:900}
+  .lap .t{font-size:clamp(22px,6vw,28px);line-height:1.05;margin-top:2px}
+  .lap .d{margin-top:6px;color:#ccc;font-size:15px;line-height:1.45}
+  .lap .d .tba{margin-left:6px}
+
+  /* dress code */
+  .swatches{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  .swatches h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;font-weight:900;margin-bottom:8px}
+  .dots{display:flex;gap:8px;flex-wrap:wrap}
+  .dot{width:40px;height:40px;border-radius:50%;border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+
+  /* gifts */
+  #gifts{background:var(--cream)}
+  .gifts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .gift{
+    background:#fff;border:3px solid var(--black);border-radius:16px;padding:16px 14px;
+    box-shadow:6px 6px 0 var(--blue);display:flex;gap:12px;align-items:flex-start;
+  }
+  .gift .ico{width:44px;height:44px;border-radius:12px;background:var(--yellow);color:var(--black)}
+  .gift .ico svg{width:24px;height:24px}
+  .gift h4{font-size:15px;font-weight:900;color:var(--black);line-height:1.2}
+  .gift p{margin-top:4px;font-size:14px;line-height:1.4;color:#555;font-weight:600}
+  .gift p .tba{font-size:10px;padding:3px 8px}
+  @media (max-width:420px){.gifts{grid-template-columns:1fr}}
+  .gift-note{margin-top:18px;text-align:center;font-size:14px;color:#666;font-weight:600;line-height:1.5}
+  .gcash{
+    margin-top:28px;background:#fff;border:3px solid var(--black);border-radius:18px;
+    box-shadow:6px 6px 0 var(--red);padding:18px;display:flex;gap:18px;align-items:center;
+  }
+  .gcash img{width:240px;flex:0 0 auto;border-radius:12px;border:2px solid #e5e7eb;background:#fff;image-rendering:pixelated;image-rendering:crisp-edges}
+  .gcash h3{font-size:16px;font-weight:900;color:var(--black);line-height:1.25}
+  .gcash p{margin-top:8px;font-size:14px;line-height:1.5;color:#555;font-weight:600}
+  .gcash p.tip{font-size:12px;color:#888}
+  @media (max-width:480px){
+    .gcash{flex-direction:column;text-align:center}
+    .gcash img{width:min(84vw,340px)}
+  }
+
+  /* crew */
+  #crew{background:var(--cream-2)}
+  .crew{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .card{
+    background:#fff;border-radius:16px;padding:18px 16px;text-align:center;
+    border:3px solid var(--black);box-shadow:6px 6px 0 var(--red);
+  }
+  .card h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;font-weight:900}
+  .card p{margin-top:8px;font-size:clamp(16px,4.6vw,20px);line-height:1.2;font-weight:900;color:var(--black)}
+  .card.full{grid-column:1/-1}
+  .card.godp h4 + ul{margin:8px 0 14px}
+  .card.godp ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;text-align:left}
+  .card.godp li{font-size:14px;font-weight:700;color:var(--black);line-height:1.3;padding-left:14px;position:relative}
+  .card.godp li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+  @media (max-width:420px){.card.godp ul{grid-template-columns:1fr}}
+
+  /* footer */
+  footer{background:var(--red);color:#fff;text-align:center;padding:48px 0 40px;position:relative;overflow:hidden}
+  footer .h2{color:#fff}
+  footer .h2 span{color:var(--yellow)}
+  footer .with{margin-top:14px;font-size:clamp(16px,4.6vw,20px);font-weight:700}
+  footer .names{margin-top:4px;font-size:clamp(20px,6vw,28px);color:var(--yellow)}
+  footer .fine{margin-top:26px;font-size:12px;opacity:.75;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<!-- ================= INTRO: starting lights ================= -->
+<div id="intro" aria-hidden="true">
+  <div class="gantry">
+    <div class="col"><div class="lamp"></div><div class="lamp"></div></div>
+    <div class="col"><div class="lamp"></div><div class="lamp"></div></div>
+    <div class="col"><div class="lamp"></div><div class="lamp"></div></div>
+    <div class="col"><div class="lamp"></div><div class="lamp"></div></div>
+    <div class="col"><div class="lamp"></div><div class="lamp"></div></div>
+  </div>
+  <div class="msg race" id="introMsg">Get ready</div>
+  <button class="skip" id="skip">Skip intro</button>
+</div>
+
+<!-- ================= HERO ================= -->
+<header id="hero">
+  <div class="wrap">
+    <span class="tag"><i class="flag"></i> Save the date &middot; September 19, 2026</span>
+    <p class="kicker">Please join us in celebrating our little racer</p>
+    <h1 class="hero-name race">HENRY</h1>
+    <p class="hero-sub race">Thompson Ong</p>
+    <div class="roundel race">1</div>
+    <div class="events">
+      <span class="ev race">Christening</span>
+      <span class="amp race">&amp;</span>
+      <span class="ev race">1st Birthday</span>
+    </div>
+
+    <!-- PHOTO: replace the placeholder text with <img src="henry.jpg" alt="Henry"> -->
+    <div class="tyre">
+      <div class="photo"><img src="img/henry-hero.jpg" alt="Henry"></div>
+    </div>
+  </div>
+
+  <div class="road">
+    <svg class="car" viewBox="0 0 240 100" aria-hidden="true">
+      <defs>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff4a52"/><stop offset="1" stop-color="#c8141c"/></linearGradient>
+      </defs>
+      <!-- car faces right: short tail + spoiler at left, cabin, long hood + headlight at right -->
+      <rect x="4" y="26" width="32" height="6" rx="2" fill="#161616"/>
+      <path d="M12 32 L18 32 L20 40 L10 40 Z M26 32 L32 32 L34 40 L24 40 Z" fill="#161616"/>
+      <path d="M10 66 L10 50 Q10 42 18 40 L40 36 L58 16 Q62 12 70 12 L126 12 Q134 12 140 18 L162 36 L224 40 Q234 42 234 52 L234 66 Q234 72 228 72 L16 72 Q10 72 10 66 Z" fill="url(#body)"/>
+      <path d="M48 36 L60 18 L72 18 L72 36 Z" fill="#bfe8ff"/>
+      <path d="M78 18 L124 18 L124 36 L78 36 Z" fill="#bfe8ff"/>
+      <path d="M130 18 L138 19 L158 36 L130 36 Z" fill="#bfe8ff"/>
+      <path d="M176 37 L184 37 L184 72 L176 72 Z M190 38 L196 38 L196 72 L190 72 Z" fill="#fff" opacity=".9"/>
+      <rect x="224" y="46" width="9" height="9" rx="2" fill="#ffc20e"/>
+      <rect x="10" y="48" width="6" height="9" rx="2" fill="#8a0b10"/>
+      <circle cx="100" cy="54" r="14" fill="#fff"/>
+      <text x="100" y="61" text-anchor="middle" font-family="Racing Sans One, Impact, sans-serif" font-size="19" fill="#161616">1</text>
+      <g class="wheel">
+        <circle cx="54" cy="74" r="18" fill="#161616"/><circle cx="54" cy="74" r="9" fill="#e0e0e0"/>
+        <path d="M54 65 v18 M45 74 h18" stroke="#161616" stroke-width="3"/>
+      </g>
+      <g class="wheel">
+        <circle cx="186" cy="74" r="18" fill="#161616"/><circle cx="186" cy="74" r="9" fill="#e0e0e0"/>
+        <path d="M186 65 v18 M177 74 h18" stroke="#161616" stroke-width="3"/>
+      </g>
+    </svg>
+  </div>
+  <div class="checks"></div>
+</header>
+
+<!-- ================= PIT PASS (personalised) ================= -->
+<section class="block" id="pass">
+  <div class="wrap">
+    <h2 class="h2 race">You're <span>invited</span></h2>
+    <p class="lead">We would love to have you with us on Henry's big day.</p>
+
+    <div class="ticket">
+      <div class="head"><span>Invitation &middot; Henry's big day</span><span class="chk"></span></div>
+      <div class="body">
+        <div class="dear">Dear</div>
+        <div class="guest race" id="guestName">Family &amp; Friends</div>
+        <p class="copy" id="guestCopy">
+          <b>Byron and Hanna</b> warmly invite you to join them as their son
+          <b>Henry Thompson Ong</b> is welcomed into the Christian faith and celebrates his first birthday.
+        </p>
+        <div class="meta">
+          <div>Celebrant<strong>Henry</strong></div>
+          <div>Turning<strong>One</strong></div>
+          <div>Date<strong>Sept 19, 2026</strong></div>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEET THE DRIVER ================= -->
+<section class="block" id="driver">
+  <div class="wrap">
+    <h2 class="h2 race">Our little <span>Henry</span></h2>
+    <p class="lead">One year of smiles, and he is only getting started.</p>
+    <div class="strip">
+      <figure class="shot"><img src="img/henry-one.jpg" alt="Henry holding a gold number 1 balloon"><figcaption>Turning one</figcaption></figure>
+      <figure class="shot"><img src="img/henry-sister.jpg" alt="Henry with his big sister Bella"><figcaption>With his big sister, Bella</figcaption></figure>
+      <figure class="shot"><img src="img/henry-smile.jpg" alt="Henry smiling"><figcaption>All smiles</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COUNTDOWN ================= -->
+<section class="block" id="count">
+  <div class="wrap">
+    <h2 class="h2 race">Counting down to the <span>big day</span></h2>
+    <div class="cd" id="cd">
+      <div><b id="cdD">--</b><small>days</small></div>
+      <div><b id="cdH">--</b><small>hours</small></div>
+      <div><b id="cdM">--</b><small>mins</small></div>
+      <div><b id="cdS">--</b><small>secs</small></div>
+    </div>
+    <div class="btns">
+      <!-- CALENDAR: all-day until the time is final; then switch dates to 20260919T090000/20260919T130000 -->
+      <a class="btn" id="calBtn" target="_blank" rel="noopener"
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Henry%27s%20Christening%20%26%201st%20Birthday&dates=20260919T110000/20260919T160000&ctz=Asia/Manila&details=Ceremony%3A%20Cathedral%20Church%2C%20San%20Nicolas%20Street%2C%20Surigao%20City.%20Reception%3A%20Jollibee%20Highway%20Branch%2C%20outside%20Villa%20Corito%2C%20Surigao%20City.&location=Cathedral%20Church%2C%20San%20Nicolas%20Street%2C%20Surigao%20City">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>
+        Add to calendar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETAILS ================= -->
+<section class="block" id="details">
+  <div class="wrap">
+    <h2 class="h2 race">The <span>details</span></h2>
+
+    <div class="grid">
+      <div class="item">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h2M12 14h2M16 14h2M8 18h2M12 18h2" stroke-width="2.4"/></svg></div>
+        <div><h3>Date</h3><p>Saturday<br>September 19, 2026</p></div>
+      </div>
+
+      <div class="item">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><h3>Time</h3><p>11:00 AM ceremony<br><small>1:00 PM reception at Jollibee</small></p></div>
+      </div>
+
+      <div class="item">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M10 4h4"/><path d="M7 11l5-5 5 5v10H7z"/><path d="M7 14H3v7h4M17 14h4v7h-4"/><path d="M10.5 21v-4a1.5 1.5 0 0 1 3 0v4"/></svg></div>
+        <div><h3>Ceremony</h3><p>Cathedral Church<br><small>San Nicolas Street, Surigao City</small>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cathedral+Church+San+Nicolas+Street+Surigao+City">Get directions &rarr;</a></p></div>
+      </div>
+
+      <div class="item">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h16"/><path d="M5 16a7 7 0 0 1 14 0"/><path d="M12 9V7M11 7h2"/><path d="M3 19h18"/></svg></div>
+        <div><h3>Reception</h3><p>Jollibee Highway Branch<br><small>Outside Villa Corito, Surigao City</small>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Jollibee+Highway+Surigao+City">Get directions &rarr;</a></p></div>
+      </div>
+
+      <div class="item full">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8c0-2 1.5-3 3-3s3 1 3 3-3 2-3 4"/><path d="M12 12L3 19h18l-9-7z"/></svg></div>
+        <div style="flex:1"><h3>Dress code</h3><p>Ninongs and Ninangs in white<br><small>Guests in red, yellow or blue</small></p>
+          <div class="swatches">
+            <div><h4>Godparents</h4><div class="dots"><div class="dot" style="background:#fff"></div></div></div>
+            <div><h4>Guests</h4><div class="dots"><div class="dot" style="background:#e31b23"></div><div class="dot" style="background:#ffc20e"></div><div class="dot" style="background:#1f5fbf"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RACE ROUTE ================= -->
+<section class="block" id="route">
+  <div class="wrap">
+    <h2 class="h2 race">How the <span>day goes</span></h2>
+    <p class="lead">From the church to the party, all in one afternoon.</p>
+    <div class="laps">
+      <div class="lap" data-n="1">
+        <div class="l">First &middot; Ceremony</div>
+        <div class="t race">Christening</div>
+        <div class="d">11:00 AM at Cathedral Church, San Nicolas Street.</div>
+      </div>
+      <div class="lap" data-n="2">
+        <div class="l">Then &middot; Reception</div>
+        <div class="t race">Lunch at Jollibee</div>
+        <div class="d">1:00 PM at Jollibee Highway Branch, outside Villa Corito. Lunch, games and a lot of Chickenjoy.</div>
+      </div>
+      <div class="lap" data-n="3">
+        <div class="l">Finally &middot; The best part</div>
+        <div class="t race">Cake &amp; photos</div>
+        <div class="d">Henry's first birthday cake, then photos with the birthday boy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GIFT IDEAS ================= -->
+<section class="block" id="gifts">
+  <div class="wrap">
+    <h2 class="h2 race">Gift <span>ideas</span></h2>
+    <p class="lead">Your presence is the best present. If you would like to bring something, here are a few ideas.</p>
+    <div class="gifts">
+      <div class="gift">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 6.6 16 4l-1.5 2.2a3 3 0 0 1-5 0L8 4 3.6 6.6 5 10l2-.6V20h10V9.4l2 .6z"/></svg></div>
+        <div><h4>Clothes</h4><p>Shirts, shorts and onesies in <b>2-year-old size (24 months / 2T)</b>. He is growing fast, so bigger is better.</p></div>
+      </div>
+      <div class="gift">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M3 11h18M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
+        <div><h4>Diapers &amp; wipes</h4><p>Always useful. <b>EQ Pants, Medium</b>.</p></div>
+      </div>
+      <div class="gift">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v3l2 3v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/><path d="M7 13h10"/></svg></div>
+        <div><h4>Milk</h4><p><b>Nido Junior 1 to 3 years old</b>. His everyday milk, always appreciated.</p></div>
+      </div>
+      <div class="gift">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/></svg></div>
+        <div><h4>Books &amp; toys</h4><p>Board books, stacking cups, push toys, anything for a curious one-year-old. Little cars are a favourite.</p></div>
+      </div>
+      <div class="gift">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10l9 5 9-5"/></svg></div>
+        <div><h4>A little something for his future</h4><p>If you prefer, an envelope for Henry's savings is gratefully received.</p></div>
+      </div>
+    </div>
+    <p class="gift-note">No wrapping needed, and no gift is expected. We are just happy you are coming.</p>
+
+  </div>
+</section>
+
+<!-- ================= PIT CREW ================= -->
+<section class="block" id="crew">
+  <div class="wrap">
+    <h2 class="h2 race">Henry's <span>family</span></h2>
+    <div class="crew">
+      <div class="card"><h4>Dad</h4><p>Byron Ong</p></div>
+      <div class="card"><h4>Mom</h4><p>Hanna Albino</p></div>
+      <div class="card full"><h4>Big sister</h4><p>Bella Bianca Mari Ong</p></div>
+      <!-- GODPARENTS: fill in once confirmed -->
+      <div class="card full godp">
+        <h4>Ninongs</h4>
+        <ul>
+          <li>Atty. Ronel A. Ubod</li><li>Atty. Tristan Louise D. Ando</li><li>Felibert C. Dumale</li><li>Ronin Alipao</li>
+          <li>Nolram Dominiq Concepcion</li><li>Cedric Josh Kaimo</li><li>Neil Jhun Orozco</li><li>Carl Bonilla</li>
+        </ul>
+        <h4>Ninangs</h4>
+        <ul>
+          <li>Charmil Mijares</li><li>Nej Minglana</li><li>Regine Salvacion</li><li>Dianne Galanida</li>
+          <li>Catherine Mangyan</li><li>Margie Revil</li><li>Claire Concepcion</li><li>Christine Ablan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checks"></div>
+<footer>
+  <div class="wrap">
+    <h2 class="h2 race">See you <span>there!</span></h2>
+    <p class="with">With love,</p>
+    <p class="names race">Byron, Hanna, Henry &amp; Bella</p>
+    <p class="fine">Surigao City &middot; September 19, 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- personalisation from URL: ?to=Lola+Ning -> "Dear Lola Ning" ---------- */
+  var q = new URLSearchParams(location.search);
+  var to = (q.get('to') || '').trim().slice(0, 60);
+  var nameEl = document.getElementById('guestName');
+  if (to) {
+    nameEl.textContent = to;
+    document.title = 'Invitation for ' + to + ' · Henry’s First Lap';
+  }
+
+  /* ---------- countdown ---------- */
+  var target = new Date('2026-09-19T11:00:00+08:00').getTime(); // ceremony start
+  var D=document.getElementById('cdD'),H=document.getElementById('cdH'),M=document.getElementById('cdM'),S=document.getElementById('cdS');
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var diff = target - Date.now();
+    if (diff <= 0) { D.textContent='00';H.textContent='00';M.textContent='00';S.textContent='00';
+      document.querySelector('#count .h2').innerHTML = 'It’s <span>Henry’s big day!</span>'; return; }
+    var s=Math.floor(diff/1000), d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60), sec=s%60;
+    D.textContent=d; H.textContent=pad(h); M.textContent=pad(m); S.textContent=pad(sec);
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+  /* ---------- starting lights intro ---------- */
+  var intro = document.getElementById('intro');
+  var cols = intro.querySelectorAll('.col');
+  var msg = document.getElementById('introMsg');
+  var done = false;
+  function finish(){
+    if (done) return; done = true;
+    intro.classList.add('out');
+    try { sessionStorage.setItem('henry-intro', '1'); } catch(e){}
+    setTimeout(function(){ intro.remove(); }, 600);
+  }
+  document.getElementById('skip').addEventListener('click', finish);
+  var seen = false;
+  try { seen = sessionStorage.getItem('henry-intro') === '1'; } catch(e){}
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (seen || reduce) { finish(); }
+  else {
+    var i = 0;
+    var t = setInterval(function(){
+      if (i < cols.length) { cols[i].classList.add('on'); i++; }
+      else {
+        clearInterval(t);
+        setTimeout(function(){
+          cols.forEach(function(c){ c.classList.remove('on'); c.classList.add('go'); });
+          msg.textContent = 'Henry is turning one!';
+          setTimeout(finish, 900);
+        }, 700);
+      }
+    }, 420);
+  }
+})();
+</script>
+</body>
+</html>
