@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Stats: count up when the bar scrolls into view.
-// The markup already holds the final value ("6+", "50+", "17"), so if this never
+// The markup already holds the final value ("7", "50+", "17"), so if this never
 // runs the numbers simply display as written, so there is nothing to fail open.
 document.addEventListener('DOMContentLoaded', () => {
     const bar = document.querySelector('.stats-section');
